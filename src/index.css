@@ -23,3 +23,15 @@
   font-family: Poppins-Light;
   src: url(/fonts/Poppins-Light.ttf);
 }
+
+/* Headers */
+h1,
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 16px;
+}
