@@ -21,6 +21,7 @@ export default {
         primaryGray: "#B6B6B6",
         primaryGray2: "#F4F4F4",
         primaryBg: "#F3F4F7",
+        darkPrimaryBg: "#1B1B1B",
         success: {
           900: "#007A64",
           800: "#00936A",
