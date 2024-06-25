@@ -1,5 +1,4 @@
-import { Card, Image } from "@nextui-org/react";
-import logo from "../../../assets/icons/logo/logo.svg"
+import { Card } from "@nextui-org/react";
 import DashboardIcon from "../../../assets/icons/fill/Dashboard";
 import WalletIcon from "../../../assets/icons/fill/Wallet";
 import CommentIcon from "../../../assets/icons/fill/Comment";
@@ -8,11 +7,12 @@ import ChartIcon from "../../../assets/icons/fill/Chart";
 import CreditIcon from "../../../assets/icons/fill/Credit";
 import SigninIcon from "../../../assets/icons/fill/Signin";
 import MainTooltip from "../Tooltip/MainTooltip";
+import LogoIcon from "../../../assets/icons/logo/Logo";
 
 export default function Sidebar() {
     return (
         <Card className=" bg-black shadow-none px-5 py-4 h-full w-max rounded-full justify-between">
-            <Image alt="" src={logo} />
+            <LogoIcon />
             <div className="flex flex-col gap-4 mt-16">
                 <MainTooltip content="Dashboard">
                     <span className="cursor-pointer">
