@@ -17,7 +17,7 @@ export default function ThemeSwitch() {
     }
     return (
         <MainTooltip content={isLightMode ? `Dark Mode` : `Light Mode`}>
-            <span onClick={changeThemeHandler} className='cursor-pointer'>
+            <span onClick={changeThemeHandler} className='cursor-pointer hidden sm:block'>
                 {isLightMode ? <MoonIcon /> : <SunIcon />}
             </span>
         </MainTooltip>
