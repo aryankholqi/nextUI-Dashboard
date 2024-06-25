@@ -11,12 +11,14 @@
   },
   "dependencies": {
     "@nextui-org/react": "^2.4.2",
+    "@tanstack/react-router": "^1.40.0",
     "framer-motion": "^11.2.11",
     "next-themes": "^0.3.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
   },
   "devDependencies": {
+    "@tanstack/router-plugin": "^1.39.13",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
     "@typescript-eslint/eslint-plugin": "^7.13.1",
