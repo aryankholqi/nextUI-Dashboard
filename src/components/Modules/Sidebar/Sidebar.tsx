@@ -5,9 +5,11 @@ import sideBarItem from "../../../constants/sideBarItem";
 import { useEffect, useState } from "react";
 import CloseIcon from "../../../assets/icons/fill/Close";
 import { Link } from "@tanstack/react-router";
-import { sidebarProps } from "../../../interfaces/sidebar.interface";
+import { useSidebarStore } from "../../../stores/useSidebar";
 
-export default function Sidebar({ isMenuOpen, menuHandler }: sidebarProps) {
+export default function Sidebar() {
+  const { isSidebarOpen, toggleSidebar } = useSidebarStore()
+
   const [isInLaptopView, setIsInLaptopView] = useState<boolean>(window.innerWidth > 768)
 
   useEffect(() => {
@@ -23,12 +25,12 @@ export default function Sidebar({ isMenuOpen, menuHandler }: sidebarProps) {
 
   return (
     <div
-      className={`bg-black shadow-none px-5 py-4 h-full flex flex-col justify-between transition-all duration-[350ms] ${!isInLaptopView ? "absolute h-[95dvh] z-50" : "rounded-full"} ${(!isInLaptopView && isMenuOpen) ? "left-5 w-max sm:w-[40%] rounded-[40px]" : ""} ${!isInLaptopView && !isMenuOpen ? "-left-96" : ""}`}
+      className={`bg-black shadow-none px-5 py-4 h-full flex flex-col justify-between transition-all duration-[350ms] ${!isInLaptopView ? "absolute h-[94dvh] z-50" : "rounded-full"} ${(!isInLaptopView && isSidebarOpen) ? "left-5 w-max sm:w-[40%] rounded-[40px]" : ""} ${!isInLaptopView && !isSidebarOpen ? "-left-96" : ""}`}
     >
       <div className="flex flex-wrap-reverse items-end gap-4 mt-2">
         <LogoIcon />
         <h1 className="font-poppinsRegular text-2xl sm:text-3xl md:hidden text-white">Overview</h1>
-        <span className="cursor-pointer md:hidden" onClick={menuHandler}>
+        <span className="cursor-pointer md:hidden" onClick={toggleSidebar}>
           <CloseIcon />
         </span>
       </div>

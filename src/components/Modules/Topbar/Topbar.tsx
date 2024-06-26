@@ -10,18 +10,20 @@ import PopOver from "../Popover/Popover";
 import SearchPopoverContent from "../Popover/PopoverContents/SearchPopoverContent";
 import UserPopoverContent from "../Popover/PopoverContents/UserPopoverContent";
 import MenuIcon from "../../../assets/icons/fill/Menu";
-import { sidebarProps } from "../../../interfaces/sidebar.interface";
+import { useSidebarStore } from "../../../stores/useSidebar";
 
-export default function Topbar({ menuHandler, isMenuOpen }: sidebarProps) {
+export default function Topbar() {
+  const { isSidebarOpen, toggleSidebar } = useSidebarStore()
+
   return (
     <Card className="dark:bg-black shadow-none rounded-full py-3 px-5 flex-row justify-between items-center">
       <div className="flex items-center gap-2">
         <MainTooltip content="Menu">
-          <span onClick={menuHandler} className="cursor-pointer md:hidden">
+          <span onClick={toggleSidebar} className="cursor-pointer md:hidden">
             <MenuIcon />
           </span>
         </MainTooltip>
-        {!isMenuOpen && <h1 className="font-poppinsRegular text-2xl sm:text-3xl">Overview</h1>}
+        {!isSidebarOpen && <h1 className="font-poppinsRegular text-2xl sm:text-3xl">Overview</h1>}
       </div>
 
       <div className="flex items-center gap-1 sm:gap-5">
