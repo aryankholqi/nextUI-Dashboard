@@ -8,6 +8,17 @@ export default {
     "./node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
+    screens: {
+      xs: "380px",
+      "2xs": "430px",
+      "3xs": "520px",
+      sm: "640px",
+      md: "768px",
+      lg: "1024px",
+      xl: "1280px",
+      "2xl": "1440px",
+      "3xl": "1760px",
+    },
     fontFamily: {
       poppinsLight: ["Poppins-Light"],
       poppinsRegular: ["Poppins-Regular"],
@@ -70,5 +81,11 @@ export default {
     },
   },
   darkMode: "class",
-  plugins: [nextui()],
+  plugins: [
+    nextui(),
+    function ({ addVariant }) {
+      addVariant("child", "& > *");
+      addVariant("child-hover", "& > *:hover");
+    },
+  ],
 };
