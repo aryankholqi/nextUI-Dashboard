@@ -12,9 +12,9 @@ export default function DashboardLayout({ children }: { children: ReactNode }) {
 
   return (
     <div className="bg-primaryBg dark:bg-darkPrimaryBg h-[100dvh] flex gap-4 items-start p-5 relative">
-      <Sidebar isMenuOpen={isMenuOpen} />
+      <Sidebar isMenuOpen={isMenuOpen} menuHandler={changeMenuStatusHandler}/>
       <div className="w-full">
-        <Topbar menuHandler={changeMenuStatusHandler} />
+        <Topbar isMenuOpen={isMenuOpen} menuHandler={changeMenuStatusHandler} />
         {children}
       </div>
     </div>
