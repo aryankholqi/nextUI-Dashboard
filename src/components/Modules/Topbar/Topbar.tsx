@@ -18,14 +18,12 @@ export default function Topbar() {
   return (
     <Card className="dark:bg-black shadow-none rounded-full py-3 px-5 flex-row justify-between items-center">
       <div className="flex items-center gap-2">
-        <MainTooltip content="Menu">
-          <span
-            onClick={() => toggleSidebar(true)}
-            className="cursor-pointer md:hidden"
-          >
-            <MenuIcon />
-          </span>
-        </MainTooltip>
+        <span
+          onClick={() => toggleSidebar(true)}
+          className="cursor-pointer md:hidden"
+        >
+          <MenuIcon />
+        </span>
         {!isSidebarOpen && (
           <h1 className="font-poppinsRegular text-2xl sm:text-3xl">Overview</h1>
         )}
