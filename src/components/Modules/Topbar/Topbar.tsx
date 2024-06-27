@@ -36,7 +36,7 @@ export default function Topbar() {
           classNames={{
             inputWrapper: ["rounded-full"],
           }}
-          className="font-poppinsRegular hidden lg:block"
+          className={`font-poppinsRegular hidden ${isSidebarExpanded ? "lg:hidden lgb:block" : "lg:block"}`}
           startContent={<SearchIcon />}
           endContent={
             <Kbd className="" keys={["command"]}>
@@ -46,7 +46,7 @@ export default function Topbar() {
           placeholder="Search"
         />
         <PopOver content={<SearchPopoverContent />}>
-          <span className="cursor-pointer block lg:hidden">
+          <span className={`cursor-pointer block ${isSidebarExpanded ? "lg:block lgb:hidden" : "lg:hidden"}`}>
             <SearchIcon />
           </span>
         </PopOver>
