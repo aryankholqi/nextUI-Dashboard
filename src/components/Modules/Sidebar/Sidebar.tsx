@@ -31,18 +31,15 @@ export default function Sidebar() {
 
   return (
     <div
-      className={`bg-black shadow-none px-5 py-4 h-[93.5dvh] transition-all duration-[250ms] rounded-[40px] ${
-        isSidebarExpanded && "w-max"
-      } absolute md:static z-50 ${
-        isSidebarOpen ? "left-5 w-max sm:w-[40%]" : ""
-      } ${!isSidebarOpen ? "-left-96" : ""}`}
+      className={`bg-black shadow-none px-5 py-4 h-[93.5dvh] transition-all duration-[250ms] rounded-[40px] ${isSidebarExpanded && "w-max"
+        } absolute md:static z-50 ${isSidebarOpen ? "left-5 w-max sm:w-[40%]" : ""
+        } ${!isSidebarOpen ? "-left-96" : ""}`}
     >
       <div className="flex flex-col justify-between h-full relative">
         <MainTooltip content="Expand">
           <span
-            className={`hidden md:inline-block absolute -right-8 top-[50px] cursor-pointer transition-all duration-250 ${
-              isSidebarExpanded ? "rotate-180" : "rotate-0"
-            }`}
+            className={`hidden md:inline-block absolute -right-8 top-[50px] cursor-pointer transition-all duration-250 ${isSidebarExpanded ? "rotate-180" : "rotate-0"
+              }`}
             onClick={expandSidebarToggle}
           >
             <ExpandRightIcon />
@@ -62,7 +59,7 @@ export default function Sidebar() {
         </div>
         <ul className="flex flex-col gap-4 mt-16">
           {sideBarItem().map((item, index) => (
-            <li key={index}>
+            <li key={index} className="child-hover:text-primaryGreen child:text-white child:transition-all">
               <Link to="/" className="flex items-center gap-2">
                 <MainTooltip key={index} content={item.content}>
                   <span className="cursor-pointer">
@@ -71,9 +68,8 @@ export default function Sidebar() {
                 </MainTooltip>
 
                 <span
-                  className={`text-white font-poppinsRegular transition-all hover:text-primaryGreen ${
-                    !isSidebarExpanded && "md:hidden"
-                  }`}
+                  className={`font-poppinsRegular ${!isSidebarExpanded && "md:hidden"
+                    }`}
                 >
                   {item.content}
                 </span>
@@ -89,9 +85,8 @@ export default function Sidebar() {
           </MainTooltip>
 
           <span
-            className={`text-white font-poppinsRegular transition-all hover:text-danger-600 ${
-              !isSidebarExpanded && "md:hidden"
-            }`}
+            className={`text-white font-poppinsRegular transition-all hover:text-danger-600 ${!isSidebarExpanded && "md:hidden"
+              }`}
           >
             Signout
           </span>
