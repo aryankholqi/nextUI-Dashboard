@@ -8,28 +8,38 @@ import { Link } from "@tanstack/react-router";
 import { useSidebarStore } from "../../../stores/useSidebar";
 
 export default function Sidebar() {
-  const { isSidebarOpen, toggleSidebar } = useSidebarStore()
+  const { isSidebarOpen, toggleSidebar } = useSidebarStore();
 
-  const [isInLaptopView, setIsInLaptopView] = useState<boolean>(window.innerWidth > 768)
+  const [isInLaptopView, setIsInLaptopView] = useState<boolean>(
+    window.innerWidth > 768
+  );
 
   useEffect(() => {
     const handleWidthChange = () => {
-      setIsInLaptopView(window.innerWidth > 768)
-    }
-    window.addEventListener("resize", handleWidthChange)
+      setIsInLaptopView(window.innerWidth > 768);
+    };
+    window.addEventListener("resize", handleWidthChange);
 
     return () => {
-      window.removeEventListener("resize", handleWidthChange)
-    }
-  }, [])
+      window.removeEventListener("resize", handleWidthChange);
+    };
+  }, []);
 
   return (
     <div
-      className={`bg-black shadow-none px-5 py-4 h-full flex flex-col justify-between transition-all duration-[350ms] ${!isInLaptopView ? "absolute h-[94dvh] z-50" : "rounded-full"} ${(!isInLaptopView && isSidebarOpen) ? "left-5 w-max sm:w-[40%] rounded-[40px]" : ""} ${!isInLaptopView && !isSidebarOpen ? "-left-96" : ""}`}
+      className={`bg-black shadow-none px-5 py-4 h-full flex flex-col justify-between transition-all duration-[350ms] ${
+        !isInLaptopView ? "absolute h-[93dvh] z-50" : "rounded-full"
+      } ${
+        !isInLaptopView && isSidebarOpen
+          ? "left-5 w-max sm:w-[40%] rounded-[40px]"
+          : ""
+      } ${!isInLaptopView && !isSidebarOpen ? "-left-96" : ""}`}
     >
-      <div className="flex flex-wrap-reverse items-end gap-4 mt-2">
+      <div className="flex items-center justify-between gap-4 sm:gap-0 flex-wrap-reverse mt-2">
         <LogoIcon />
-        <h1 className="font-poppinsRegular text-2xl sm:text-3xl md:hidden text-white">Overview</h1>
+        <h1 className="font-poppinsRegular text-2xl sm:text-3xl md:hidden text-white">
+          Overview
+        </h1>
         <span className="cursor-pointer md:hidden" onClick={toggleSidebar}>
           <CloseIcon />
         </span>
@@ -42,7 +52,11 @@ export default function Sidebar() {
                 <item.Icon />
               </span>
             </MainTooltip>
-            {!isInLaptopView && <span className="text-white font-poppinsRegular">{item.content}</span>}
+            {!isInLaptopView && (
+              <span className="text-white font-poppinsRegular">
+                {item.content}
+              </span>
+            )}
           </Link>
         ))}
       </div>
@@ -52,8 +66,10 @@ export default function Sidebar() {
             <SigninIcon />
           </span>
         </MainTooltip>
-        {!isInLaptopView && <span className="text-white font-poppinsRegular">Signout</span>}
+        {!isInLaptopView && (
+          <span className="text-white font-poppinsRegular">Signout</span>
+        )}
       </Link>
-    </div >
+    </div>
   );
 }
