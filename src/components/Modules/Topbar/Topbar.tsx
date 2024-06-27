@@ -13,13 +13,13 @@ import MenuIcon from "../../../assets/icons/fill/Menu";
 import { useSidebarStore } from "../../../stores/useSidebar";
 
 export default function Topbar() {
-  const { isSidebarOpen, toggleSidebar } = useSidebarStore()
+  const { isSidebarOpen, toggleSidebar, isSidebarExpanded } = useSidebarStore()
 
   return (
     <Card className="dark:bg-black shadow-none rounded-full py-3 px-5 flex-row justify-between items-center">
       <div className="flex items-center gap-2">
         <MainTooltip content="Menu">
-          <span onClick={toggleSidebar} className="cursor-pointer md:hidden">
+          <span onClick={() => toggleSidebar(true)} className="cursor-pointer md:hidden">
             <MenuIcon />
           </span>
         </MainTooltip>
@@ -57,7 +57,7 @@ export default function Topbar() {
         </MainTooltip>
         <ThemeSwitch />
         <Divider className="rotate-90 w-5 h-[2px] bg-primaryGray" />
-        <div className="hidden md:block">
+        <div className={`hidden md:${isSidebarExpanded ? "hidden" : "block"} mdb:block`}>
           <PopOver content={<UserPopoverContent />}>
             <div className="cursor-pointer">
               <MainUserCard />
@@ -65,7 +65,7 @@ export default function Topbar() {
           </PopOver>
         </div>
         <PopOver content={<UserPopoverContent />}>
-          <Avatar src={userImage} className="block md:hidden cursor-pointer" />
+          <Avatar src={userImage} className={`block md:${isSidebarExpanded ? "block" : "hidden"} mdb:hidden cursor-pointer`} />
         </PopOver>
       </div>
     </Card>
