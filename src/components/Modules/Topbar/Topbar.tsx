@@ -63,9 +63,8 @@ export default function Topbar() {
         <ThemeSwitch />
         <Divider className="rotate-90 w-5 h-[2px] bg-primaryGray" />
         <div
-          className={`hidden ${
-            isSidebarExpanded ? "md:hidden" : "md:block"
-          } mdb:block`}
+          className={`hidden ${isSidebarExpanded ? "md:hidden" : "md:block"
+            } mdb:block`}
         >
           <PopOver content={<UserPopoverContent />}>
             <div className="cursor-pointer">
@@ -77,9 +76,8 @@ export default function Topbar() {
           <div>
             <Avatar
               src={userImage}
-              className={`block ${
-                isSidebarExpanded ? "md:block" : "hidden"
-              } mdb:hidden cursor-pointer`}
+              className={`block ${isSidebarExpanded ? "md:block" : "md:hidden"
+                } mdb:hidden cursor-pointer`}
             />
           </div>
         </PopOver>
