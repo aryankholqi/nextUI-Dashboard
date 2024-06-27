@@ -32,7 +32,7 @@ export default function Sidebar() {
   return (
     <div
       className={`bg-black shadow-none px-5 py-4 h-[93.5dvh] transition-all duration-[250ms] rounded-[40px] ${
-        isSidebarExpanded && "w-[30%]"
+        isSidebarExpanded && "w-max"
       } absolute md:static z-50 ${
         isSidebarOpen ? "left-5 w-max sm:w-[40%]" : ""
       } ${!isSidebarOpen ? "-left-96" : ""}`}
