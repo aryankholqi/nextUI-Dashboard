@@ -9,19 +9,21 @@ import userImage from "../../../assets/pictures/users/Avatar3.svg";
 import PopOver from "../Popover/Popover";
 import SearchPopoverContent from "../Popover/PopoverContents/SearchPopoverContent";
 import UserPopoverContent from "../Popover/PopoverContents/UserPopoverContent";
-import burgurMenu from "../../../assets/pictures/menuIcon/burgurMenu.png";
+import MenuIcon from "../../../assets/icons/fill/Menu";
+import { useSidebarStore } from "../../../stores/useSidebar";
 
-export default function Topbar({ menuHandler }: { menuHandler: () => void }) {
+export default function Topbar() {
+  const { isSidebarOpen, toggleSidebar } = useSidebarStore()
+
   return (
     <Card className="dark:bg-black shadow-none rounded-full py-3 px-5 flex-row justify-between items-center">
       <div className="flex items-center gap-2">
-        <img
-          className="cursor-pointer w-10 h-10 md:hidden"
-          onClick={menuHandler}
-          src={burgurMenu}
-          alt=""
-        />
-        <h1 className="font-poppinsRegular text-base sm:text-3xl">Overview</h1>
+        <MainTooltip content="Menu">
+          <span onClick={toggleSidebar} className="cursor-pointer md:hidden">
+            <MenuIcon />
+          </span>
+        </MainTooltip>
+        {!isSidebarOpen && <h1 className="font-poppinsRegular text-2xl sm:text-3xl">Overview</h1>}
       </div>
 
       <div className="flex items-center gap-1 sm:gap-5">
@@ -56,7 +58,11 @@ export default function Topbar({ menuHandler }: { menuHandler: () => void }) {
         <ThemeSwitch />
         <Divider className="rotate-90 w-5 h-[2px] bg-primaryGray" />
         <div className="hidden md:block">
-          <MainUserCard />
+          <PopOver content={<UserPopoverContent />}>
+            <div className="cursor-pointer">
+              <MainUserCard />
+            </div>
+          </PopOver>
         </div>
         <PopOver content={<UserPopoverContent />}>
           <Avatar src={userImage} className="block md:hidden cursor-pointer" />
