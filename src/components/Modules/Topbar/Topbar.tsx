@@ -64,7 +64,7 @@ export default function Topbar() {
         <Divider className="rotate-90 w-5 h-[2px] bg-primaryGray" />
         <div
           className={`hidden ${
-            isSidebarExpanded ? "md:hidden" : "block"
+            isSidebarExpanded ? "md:hidden" : "md:block"
           } mdb:block`}
         >
           <PopOver content={<UserPopoverContent />}>
