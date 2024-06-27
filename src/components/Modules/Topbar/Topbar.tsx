@@ -13,17 +13,22 @@ import MenuIcon from "../../../assets/icons/fill/Menu";
 import { useSidebarStore } from "../../../stores/useSidebar";
 
 export default function Topbar() {
-  const { isSidebarOpen, toggleSidebar, isSidebarExpanded } = useSidebarStore()
+  const { isSidebarOpen, toggleSidebar, isSidebarExpanded } = useSidebarStore();
 
   return (
     <Card className="dark:bg-black shadow-none rounded-full py-3 px-5 flex-row justify-between items-center">
       <div className="flex items-center gap-2">
         <MainTooltip content="Menu">
-          <span onClick={() => toggleSidebar(true)} className="cursor-pointer md:hidden">
+          <span
+            onClick={() => toggleSidebar(true)}
+            className="cursor-pointer md:hidden"
+          >
             <MenuIcon />
           </span>
         </MainTooltip>
-        {!isSidebarOpen && <h1 className="font-poppinsRegular text-2xl sm:text-3xl">Overview</h1>}
+        {!isSidebarOpen && (
+          <h1 className="font-poppinsRegular text-2xl sm:text-3xl">Overview</h1>
+        )}
       </div>
 
       <div className="flex items-center gap-1 sm:gap-5">
@@ -57,7 +62,11 @@ export default function Topbar() {
         </MainTooltip>
         <ThemeSwitch />
         <Divider className="rotate-90 w-5 h-[2px] bg-primaryGray" />
-        <div className={`hidden md:${isSidebarExpanded ? "hidden" : "block"} mdb:block`}>
+        <div
+          className={`hidden ${
+            isSidebarExpanded ? "md:hidden" : "block"
+          } mdb:block`}
+        >
           <PopOver content={<UserPopoverContent />}>
             <div className="cursor-pointer">
               <MainUserCard />
@@ -65,7 +74,14 @@ export default function Topbar() {
           </PopOver>
         </div>
         <PopOver content={<UserPopoverContent />}>
-          <Avatar src={userImage} className={`block md:${isSidebarExpanded ? "block" : "hidden"} mdb:hidden cursor-pointer`} />
+          <div>
+            <Avatar
+              src={userImage}
+              className={`block ${
+                isSidebarExpanded ? "md:block" : "hidden"
+              } mdb:hidden cursor-pointer`}
+            />
+          </div>
         </PopOver>
       </div>
     </Card>
