@@ -71,7 +71,7 @@ export default function Sidebar() {
                 </MainTooltip>
 
                 <span
-                  className={`text-white font-poppinsRegular ${
+                  className={`text-white font-poppinsRegular transition-all hover:text-primaryGreen ${
                     !isSidebarExpanded && "md:hidden"
                   }`}
                 >
@@ -89,7 +89,7 @@ export default function Sidebar() {
           </MainTooltip>
 
           <span
-            className={`text-white font-poppinsRegular ${
+            className={`text-white font-poppinsRegular transition-all hover:text-danger-600 ${
               !isSidebarExpanded && "md:hidden"
             }`}
           >
