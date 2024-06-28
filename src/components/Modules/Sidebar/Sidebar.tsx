@@ -35,7 +35,7 @@ export default function Sidebar() {
         } absolute md:static z-50 ${isSidebarOpen ? "left-5 !w-max sm:w-[40%]" : ""
         } ${!isSidebarOpen ? "-left-96" : ""}`}
     >
-      <div className={`flex flex-col ${isSidebarExpanded ? "items-start" : "items-center"} justify-between h-full relative`}>
+      <div className={`flex flex-col ${isSidebarExpanded || isSidebarOpen ? "items-start" : "items-center"} justify-between h-full relative`}>
         <MainTooltip content="Expand">
           <span
             className={`hidden md:inline-block absolute -right-8 top-[50px] cursor-pointer transition-all duration-250 ${isSidebarExpanded ? "rotate-180" : "rotate-0"
@@ -82,7 +82,7 @@ export default function Sidebar() {
             ))}
           </ul>
         </div>
-        <Link to="/" className=" flex items-center mt-4 gap-2">
+        <Link to="/" className={`flex items-center  mt-4 gap-2`}>
           <MainTooltip content="Signout">
             <span className="cursor-pointer">
               <SigninIcon />
