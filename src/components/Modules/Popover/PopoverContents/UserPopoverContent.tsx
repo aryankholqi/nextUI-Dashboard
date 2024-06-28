@@ -26,13 +26,16 @@ export default function UserPopoverContent() {
                 <li>
                     <Link to="">Profile</Link>
                 </li>
-                <li>
+                <li className='sm:hidden'>
                     <Link to="">Notifications</Link>
                 </li>
-                <li>
+                <li className='sm:hidden'>
                     <Link to="">Settings</Link>
                 </li>
-                <li onClick={changeThemeHandler} className='flex justify-between items-center'>
+                <li>
+                    <Link to="">Change Password</Link>
+                </li>
+                <li onClick={changeThemeHandler} className='flex justify-between items-center sm:hidden'>
                     {isLightMode ? "Dark Mode" : "Light Mode"}
                     {isLightMode ? <MoonIcon /> : <SunIcon />}
                 </li>
