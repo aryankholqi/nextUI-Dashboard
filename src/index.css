@@ -35,3 +35,22 @@ h3 {
 h4 {
   font-size: 16px;
 }
+
+@layer components {
+  .loginPageMainImg {
+    background-image: url(./assets/pictures/cropped-3840-2160-718142.webp);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 100vh;
+  }
+  .loginPageImg {
+    background-image: url(./assets/pictures/cropped-3840-2160-380542.webp);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+  }
+  .loginPageStyles {
+    @apply flex items-center w-full h-full justify-center rounded-[40px];
+  }
+}
