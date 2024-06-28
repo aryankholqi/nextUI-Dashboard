@@ -12,7 +12,7 @@ export default function AuthenticationCard({
       {children}
       <div className="absolute p-5 h-32 bottom-0 left-0 bg-white rounded-tr-[200px]">
         <h1>mohammad</h1>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi, enim!</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi, enim</p>
       </div>
       <div className="bg-white w-0.5 h-10 rounded-bl-[40px] absolute left-0 bottom-[120px]"></div>
     </div>
