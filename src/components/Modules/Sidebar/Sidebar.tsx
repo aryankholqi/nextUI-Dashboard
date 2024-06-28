@@ -7,6 +7,7 @@ import CloseIcon from "../../../assets/icons/fill/Close";
 import { Link } from "@tanstack/react-router";
 import { useSidebarStore } from "../../../stores/useSidebar";
 import ExpandRightIcon from "../../../assets/icons/fill/ExpandRight";
+import "./Sidebar.css"
 
 export default function Sidebar() {
   const {
@@ -31,7 +32,7 @@ export default function Sidebar() {
 
   return (
     <div
-      className={`bg-black px-5 py-4 h-[93.5dvh] overflow-y-auto overflow-x-hidden transition-all duration-[250ms] rounded-[40px] ${isSidebarExpanded ? "w-64" : "w-[70px]"
+      className={`bg-black px-5 py-4 h-[93.5dvh] transition-all duration-[250ms] rounded-[40px] ${isSidebarExpanded ? "w-64" : "w-[70px]"
         } absolute md:static z-50 ${isSidebarOpen ? "left-5 !w-max sm:w-[40%]" : ""
         } ${!isSidebarOpen ? "-left-96" : ""}`}
     >
