@@ -47,7 +47,7 @@ export default function LoginForm() {
           type={isPasswordVisible ? "text" : "password"}
           className="font-poppinsRegular"
           endContent={isPasswordVisible ? <span className="cursor-pointer" onClick={() => setIsPasswordVisible(false)}><EyeSlashIcon /></span> : <span className="cursor-pointer" onClick={() => setIsPasswordVisible(true)}><EyeIcon /></span>}
-          label={"Username"}
+          label={"Password"}
           isInvalid={Boolean(errors.password)}
           errorMessage={errors.password?.message}
         />
