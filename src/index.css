@@ -38,14 +38,14 @@ h4 {
 
 @layer components {
   .loginPageMainImg {
-    background-image: url(./assets/pictures/cropped-3840-2160-718142.jpg);
+    background-image: url(./assets/pictures/cropped-3840-2160-718142.webp);
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
     height: 100vh;
   }
   .loginPageImg {
-    background-image: url(./assets/pictures/cropped-3840-2160-380542.jpg);
+    background-image: url(./assets/pictures/cropped-3840-2160-380542.webp);
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
