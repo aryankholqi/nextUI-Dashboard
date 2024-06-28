@@ -7,6 +7,8 @@ export default function MainTooltip({ children, content, className }: { children
             content={<p className={`text-xs font-poppinsRegular ${className}`}>{content}</p>}
             className='rounded-md p-2'
             showArrow
+            delay={1000}
+            closeDelay={500}
         >
             {children}
         </Tooltip>

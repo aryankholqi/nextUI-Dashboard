@@ -12,6 +12,7 @@ export default function SearchPopoverContent() {
                 className="font-poppinsRegular"
                 startContent={<SearchIcon />}
                 placeholder="Search"
+                isClearable
             />
         </form>
     )
