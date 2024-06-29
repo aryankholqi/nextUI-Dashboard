@@ -13,9 +13,11 @@ export default function AuthenticationCard({
                     <div className="w-[35%] h-[80%] child:w-full child:h-full rounded-[15px] child:p-5 child:rounded-[15px] bg-black">
                         {children}
                     </div>
+                    <div className="custom-shape"></div>
                     <div className="absolute p-5 h-24 bottom-0 left-0 bg-white rounded-tr-[200px] w-[400px]">
                         <AboutUs />
                     </div>
+                    <div className="custom-shape2"></div>
                 </div>
             </div>
         </div>
