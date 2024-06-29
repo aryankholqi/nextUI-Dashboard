@@ -50,7 +50,33 @@ h4 {
     background-position: center;
     background-size: cover;
   }
-  /* .loginPageStyles {
-    @apply flex items-center w-full h-full justify-center;
-  } */
+}
+
+.custom-shape {
+  width: 100px;
+  height: 100px;
+  overflow: hidden;
+  position: absolute;
+  left: 0;
+  bottom: 95px;
+}
+.custom-shape2 {
+  width: 100px;
+  height: 49px;
+  overflow: hidden;
+  position: absolute;
+  left: 390px;
+  bottom: 0px;
+}
+.custom-shape::before,
+.custom-shape2::before {
+  content: "";
+  display: block;
+  width: 200%;
+  height: 200%;
+  position: absolute;
+  border-radius: 50%;
+  bottom: 0;
+  left: 0;
+  box-shadow: -50px 50px 0 0 white;
 }
