@@ -50,7 +50,7 @@ h4 {
     background-position: center;
     background-size: cover;
   }
-  .loginPageStyles {
-    @apply flex items-center w-full h-full justify-center rounded-[40px];
-  }
+  /* .loginPageStyles {
+    @apply flex items-center w-full h-full justify-center;
+  } */
 }
