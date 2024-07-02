@@ -3,7 +3,7 @@ import { BackgroundBeam } from "../components/ui/BackgroundBeam";
 
 export default function AuthLayout({ children }: { children: ReactNode }) {
   return (
-    <div className="flex dark:bg-black flex-col h-[100vh] items-center justify-center text-slate-950 transition-bg">
+    <div className="flex dark:bg-black flex-col h-[100dvh] items-center justify-center">
       {children}
       <BackgroundBeam />
     </div>
