@@ -30,9 +30,6 @@ export default {
       poppinsBold: ["Poppins-Bold"],
     },
     extend: {
-      boxShadow: {
-        light: "0px 1px 10px rgba(101, 163, 13, 0.9)",
-      },
       colors: {
         primaryGreen: "#00FF6B",
         primaryGray: "#B6B6B6",
