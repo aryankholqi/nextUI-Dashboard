@@ -6,7 +6,7 @@ export default function AuthenticationCard({
   children: ReactNode;
 }) {
   return (
-    <div className=" flex items-center justify-center w-full h-full py-14 px-28 z-50">
+    <div className=" flex items-center justify-center w-full h-full py-20 px-4 3xs:px-14 md:px-20 lg:px-28 z-50">
       {children}
     </div>
   );
