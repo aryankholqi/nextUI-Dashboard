@@ -1,28 +1,30 @@
-import { Button, Input } from "@nextui-org/react";
+import { Input } from "@nextui-org/react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { loginProps } from "../../../interfaces/loginForm.interface";
 import UserIcon from "../../../assets/icons/fill/User";
 import EyeIcon from "../../../assets/icons/fill/Eye";
 import { useState } from "react";
 import EyeSlashIcon from "../../../assets/icons/fill/EyeSlash";
-import loginImg from "../../../assets/pictures/cropped-3840-2160-64111.jpg";
-import ArrowLeft from "../../../assets/icons/fill/ArrowLeft";
+import loginImg from "../../../assets/pictures/login/wallpapersden.com_trees-mountains-fog_6000x4000.jpg";
+import { HoverBorderGradient } from "../../ui/HoverBorderGrdaient";
 
 export default function LoginForm() {
   const {
     register,
     handleSubmit,
     formState: { errors },
+    reset,
   } = useForm<loginProps>();
   const [isPasswordVisible, setIsPasswordVisible] = useState<boolean>(false);
 
   const submitFormHandler: SubmitHandler<loginProps> = (data) => {
     console.log(data);
+    reset();
   };
 
   return (
-    <div className="w-full h-full flex items-center">
-      <div className="relative w-[50%] xl:w-[55%] h-[80%] lg:h-full hidden md:inline-block">
+    <div className="w-full h-full flex items-center justify-center">
+      <div className="relative w-[50%] xl:w-[40%] h-[90%] xl:h-full 2xl:h-[85%] hidden md:inline-block">
         <img
           className="w-[90%] h-full object-cover rounded-3xl"
           src={loginImg}
@@ -36,21 +38,22 @@ export default function LoginForm() {
       </div>
       <form
         onSubmit={handleSubmit(submitFormHandler)}
-        className="p-4 flex flex-col justify-center items-center gap-10 lg:gap-20 3xl:gap-32 w-full md:w-[50%] xl:w-[45%]"
+        className="p-4 flex flex-col justify-center items-center gap-10 lg:gap-20 3xl:gap-32 w-full md:w-[50%] xl:w-[40%]"
       >
         <div className="text-center space-y-2">
-          <p className="text-primaryGray text-2xl 2xs:text-2xl lg:text-3xl xl:text-4xl 3xl:text-5xl font-poppinsRegular capitalize">
+          <p className="text-primaryGray text-2xl 2xs:text-2xl lg:text-3xl 2xl:text-4xl 3xl:text-5xl font-poppinsRegular capitalize">
             Login Your Account To Unleash Your Dream
           </p>
         </div>
-        <div className="space-y-4 w-full 3xl:w-[70%]">
+        <div className="space-y-6 w-full">
           <Input
             {...register("username", {
               required: "Username Is Required",
             })}
             classNames={{
+              label: ["text-xs xl:text-base 3xl:text-lg"],
               inputWrapper: [
-                "border-2 dark:border-zinc-800 bg-zinc-900 rounded-xl dark:group-data-[focus=true]:border-lime-700",
+                "border-2 text-xs lg:py-3 3xl:py-4 h-full justify-center dark:border-zinc-800 dark:bg-zinc-900 rounded-xl dark:group-data-[focus=true]:border-lime-700 group-data-[focus=true]:shadow-light",
               ],
               errorMessage: ["text-danger-600"],
             }}
@@ -66,8 +69,9 @@ export default function LoginForm() {
               required: "Password Is Required",
             })}
             classNames={{
+              label: ["text-xs xl:text-base 3xl:text-lg"],
               inputWrapper: [
-                "border-2 dark:border-zinc-800 bg-zinc-900 rounded-xl dark:group-data-[focus=true]:border-lime-700",
+                "border-2 lg:py-3 3xl:py-4 h-full dark:border-zinc-800 dark:bg-zinc-900 rounded-xl dark:group-data-[focus=true]:border-lime-700 group-data-[focus=true]:shadow-light",
               ],
               errorMessage: ["text-danger-600"],
             }}
@@ -96,15 +100,12 @@ export default function LoginForm() {
             errorMessage={errors.password?.message}
           />
         </div>
-        <Button
-          className="bg-zinc-600 font-poppinsRegular py-6 text-lg w-full 3xl:w-[70%] relative"
-          type="submit"
+        <HoverBorderGradient
+          containerClassName="w-full dark:border-black rounded-2xl dark:hover:border-lime-700"
+          className="dark:bg-zinc-950 w-full h-10 lg:h-12 xl:h-16 3xl:h-20 bg-white text-black dark:text-zinc-300 text-xl 3xl:text-3xl flex items-center justify-center space-x-2"
         >
           Login
-          <span className="rotate-180 bg-zinc-800 p-2 rounded-full absolute right-2">
-            <ArrowLeft />
-          </span>
-        </Button>
+        </HoverBorderGradient>
       </form>
     </div>
   );
