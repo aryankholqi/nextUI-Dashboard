@@ -1,4 +1,4 @@
-import { Input } from "@nextui-org/react";
+import { Button, Input } from "@nextui-org/react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { loginProps } from "../../../interfaces/loginForm.interface";
 import UserIcon from "../../../assets/icons/fill/User";
@@ -7,6 +7,7 @@ import { useState } from "react";
 import EyeSlashIcon from "../../../assets/icons/fill/EyeSlash";
 import loginImg from "../../../assets/pictures/login/wallpapersden.com_trees-mountains-fog_6000x4000.jpg";
 import { HoverBorderGradient } from "../../ui/HoverBorderGrdaient";
+import { useLoginMutation } from "../../../hooks/api/useLoginApi";
 
 export default function LoginForm() {
   const {
@@ -17,9 +18,10 @@ export default function LoginForm() {
   } = useForm<loginProps>();
   const [isPasswordVisible, setIsPasswordVisible] = useState<boolean>(false);
 
-  const submitFormHandler: SubmitHandler<loginProps> = (data) => {
-    console.log(data);
-    reset();
+  const { mutate, isPending } = useLoginMutation(reset);
+
+  const submitFormHandler: SubmitHandler<loginProps> = () => {
+    mutate();
   };
 
   return (
@@ -104,7 +106,13 @@ export default function LoginForm() {
           containerClassName="w-full dark:border-black rounded-2xl dark:hover:border-lime-700"
           className="dark:bg-zinc-950 w-full h-10 lg:h-12 xl:h-16 3xl:h-20 bg-white text-black dark:text-zinc-300 text-xl 3xl:text-3xl flex items-center justify-center space-x-2"
         >
-          Login
+          <Button
+            type="submit"
+            className="w-full bg-transparent"
+            isLoading={isPending}
+          >
+            Login
+          </Button>
         </HoverBorderGradient>
       </form>
     </div>
