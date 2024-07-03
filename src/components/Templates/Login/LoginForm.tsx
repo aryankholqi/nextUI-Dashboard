@@ -62,7 +62,7 @@ export default function LoginForm() {
             classNames={{
               label: ["text-xs xl:text-base 3xl:text-lg"],
               inputWrapper: [
-                "border text-xs lg:py-3 3xl:py-4 h-full justify-center dark:border-zinc-800 dark:bg-zinc-900 rounded-xl dark:group-data-[focus=true]:border-lime-900",
+                "border text-xs lg:py-3 3xl:py-4 h-full justify-center dark:border-zinc-800 dark:bg-black/20 rounded-xl dark:group-data-[focus=true]:border-lime-900 dark:group-data-[focus=true]:bg-black/20",
               ],
               errorMessage: ["text-danger-600"],
             }}
@@ -80,7 +80,7 @@ export default function LoginForm() {
             classNames={{
               label: ["text-xs xl:text-base 3xl:text-lg"],
               inputWrapper: [
-                "border lg:py-3 3xl:py-4 h-full dark:border-zinc-800 dark:bg-zinc-900 rounded-xl dark:group-data-[focus=true]:border-lime-900",
+                "border lg:py-3 3xl:py-4 h-full dark:border-zinc-800 dark:bg-black/20 rounded-xl dark:group-data-[focus=true]:border-lime-900 dark:group-data-[focus=true]:bg-black/20",
               ],
               errorMessage: ["text-danger-600"],
             }}
