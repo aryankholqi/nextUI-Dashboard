@@ -8,6 +8,7 @@ import EyeSlashIcon from "../../../assets/icons/fill/EyeSlash";
 import loginImg from "../../../assets/pictures/login/wallpapersden.com_trees-mountains-fog_6000x4000.jpg";
 import { HoverBorderGradient } from "../../ui/HoverBorderGrdaient";
 import { useLoginMutation } from "../../../hooks/api/useAuthApi";
+import { FlipWords } from "../../ui/FlipWords";
 
 export default function LoginForm() {
   const {
@@ -24,6 +25,8 @@ export default function LoginForm() {
     mutate();
   };
 
+  const words = ["To Your Account", "To Unleash Your Dream"];
+
   return (
     <div className="w-full h-full flex items-center justify-center">
       <div className="relative w-[50%] xl:w-[40%] h-[90%] xl:h-full 2xl:h-[85%] hidden md:inline-block">
@@ -33,7 +36,7 @@ export default function LoginForm() {
           alt=""
         />
         <img
-          className="w-[90%] absolute top-6 right-6 -z-10 blur-3xl h-full object-cover rounded-3xl"
+          className="w-[90%] absolute top-6 right-8 -z-10 blur-2xl h-full object-cover rounded-3xl"
           src={loginImg}
           alt=""
         />
@@ -42,10 +45,14 @@ export default function LoginForm() {
         onSubmit={handleSubmit(submitFormHandler)}
         className="p-4 flex flex-col justify-center items-center gap-10 lg:gap-20 3xl:gap-32 w-full md:w-[50%] xl:w-[40%]"
       >
-        <div className="text-center space-y-2">
-          <p className="text-primaryGray text-2xl 2xs:text-2xl lg:text-3xl 2xl:text-4xl 3xl:text-5xl font-poppinsRegular capitalize">
-            Login Your Account To Unleash Your Dream
-          </p>
+        <div className="self-start space-y-2">
+          <span className="text-3xl text-white font-poppinsRegular block">
+            Login
+          </span>
+          <FlipWords
+            className="text-white/50 text-xl px-0 dark:text-neutral-400 font-poppinsLight"
+            words={words}
+          />
         </div>
         <div className="space-y-6 w-full">
           <Input
@@ -55,7 +62,7 @@ export default function LoginForm() {
             classNames={{
               label: ["text-xs xl:text-base 3xl:text-lg"],
               inputWrapper: [
-                "border-2 text-xs lg:py-3 3xl:py-4 h-full justify-center dark:border-zinc-800 dark:bg-zinc-900 rounded-xl dark:group-data-[focus=true]:border-lime-700",
+                "border text-xs lg:py-3 3xl:py-4 h-full justify-center dark:border-zinc-800 dark:bg-zinc-900 rounded-xl dark:group-data-[focus=true]:border-lime-900",
               ],
               errorMessage: ["text-danger-600"],
             }}
@@ -73,7 +80,7 @@ export default function LoginForm() {
             classNames={{
               label: ["text-xs xl:text-base 3xl:text-lg"],
               inputWrapper: [
-                "border-2 lg:py-3 3xl:py-4 h-full dark:border-zinc-800 dark:bg-zinc-900 rounded-xl dark:group-data-[focus=true]:border-lime-700 ",
+                "border lg:py-3 3xl:py-4 h-full dark:border-zinc-800 dark:bg-zinc-900 rounded-xl dark:group-data-[focus=true]:border-lime-900",
               ],
               errorMessage: ["text-danger-600"],
             }}
@@ -103,12 +110,12 @@ export default function LoginForm() {
           />
         </div>
         <HoverBorderGradient
-          containerClassName="w-full dark:border-black rounded-2xl dark:hover:border-lime-700"
-          className="dark:bg-zinc-950 w-full h-10 lg:h-12 xl:h-16 3xl:h-20 bg-white text-black dark:text-zinc-300 text-xl 3xl:text-3xl flex items-center justify-center space-x-2"
+          containerClassName="w-full dark:border-black border-zinc-500 dark:hover:border-lime-700"
+          className="dark:bg-zinc-950 bg-transparent backdrop-blur-3xl w-full h-10 lg:h-12 xl:h-16 3xl:h-20 text-black dark:text-zinc-300 flex items-center justify-center space-x-2"
         >
           <Button
             type="submit"
-            className="w-full bg-transparent"
+            className="w-full bg-transparent text-white text-xl xl:text-lg 3xl:text-3xl"
             isLoading={isPending}
           >
             Login
