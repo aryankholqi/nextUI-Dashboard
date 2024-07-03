@@ -8,6 +8,7 @@ import { Link } from "@tanstack/react-router";
 import { useSidebarStore } from "../../../stores/useSidebar";
 import ExpandRightIcon from "../../../assets/icons/fill/ExpandRight";
 import "./Sidebar.css"
+import { useRevokeUser } from "../../../hooks/useRevokeUser";
 
 export default function Sidebar() {
   const {
@@ -16,6 +17,8 @@ export default function Sidebar() {
     isSidebarExpanded,
     expandSidebarToggle,
   } = useSidebarStore();
+
+  const { revokeUser } = useRevokeUser()
 
   useEffect(() => {
     const handleResize = () => {
@@ -83,7 +86,7 @@ export default function Sidebar() {
             ))}
           </ul>
         </div>
-        <Link to="/" className={`flex items-center  mt-4 gap-2`}>
+        <div className={`flex items-center  mt-4 gap-2`} onClick={revokeUser}>
           <MainTooltip content="Signout">
             <span className="cursor-pointer">
               <SigninIcon />
@@ -91,12 +94,11 @@ export default function Sidebar() {
           </MainTooltip>
 
           <span
-            className={`text-white font-poppinsRegular transition-all hover:text-danger-600 ${!isSidebarExpanded && "md:hidden"
-              }`}
+            className={`text-white font-poppinsRegular transition-all hover:text-danger-600 ${!isSidebarExpanded && "md:hidden"}`}
           >
             Signout
           </span>
-        </Link>
+        </div>
       </div>
     </div>
   );
