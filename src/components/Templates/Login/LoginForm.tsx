@@ -7,7 +7,7 @@ import { useState } from "react";
 import EyeSlashIcon from "../../../assets/icons/fill/EyeSlash";
 import loginImg from "../../../assets/pictures/login/wallpapersden.com_trees-mountains-fog_6000x4000.jpg";
 import { HoverBorderGradient } from "../../ui/HoverBorderGrdaient";
-import { useLoginMutation } from "../../../hooks/api/useLoginApi";
+import { useLoginMutation } from "../../../hooks/api/useAuthApi";
 
 export default function LoginForm() {
   const {

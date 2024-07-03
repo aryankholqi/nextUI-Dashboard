@@ -1,5 +1,5 @@
 import { useMutation } from "@tanstack/react-query";
-import { postLoginApi } from "../../services/api/loginApi";
+import { postLoginApi } from "../../services/api/authApi";
 import Cookies from "js-cookie";
 import { useNavigate } from "@tanstack/react-router";
 
