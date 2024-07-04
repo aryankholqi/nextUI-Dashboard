@@ -116,7 +116,7 @@ export default function LoginForm() {
         </div>
         <HoverBorderGradient
           containerClassName="w-full dark:border-black border-zinc-500 dark:hover:border-lime-700"
-          className="dark:bg-zinc-950 bg-transparent backdrop-blur-3xl w-full h-10 lg:h-12 xl:h-16 3xl:h-20 text-black dark:text-zinc-300 flex items-center justify-center space-x-2"
+          className="dark:bg-zinc-950 bg-lime-950 w-full h-10 lg:h-12 xl:h-16 3xl:h-20 text-black dark:text-zinc-300 flex items-center justify-center space-x-2"
         >
           <Button
             type="submit"
