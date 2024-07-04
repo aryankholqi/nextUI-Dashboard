@@ -16,13 +16,18 @@ export default function LoginForm() {
     handleSubmit,
     formState: { errors },
     reset,
-  } = useForm<loginProps>();
+  } = useForm<loginProps>({
+    defaultValues: {
+      username: "mor_2314",
+      password: "83r5^_"
+    }
+  });
   const [isPasswordVisible, setIsPasswordVisible] = useState<boolean>(false);
 
   const { mutate, isPending } = useLoginMutation(reset);
 
-  const submitFormHandler: SubmitHandler<loginProps> = () => {
-    mutate();
+  const submitFormHandler: SubmitHandler<loginProps> = (data) => {
+    mutate(data);
   };
 
   const words = ["To Your Account", "To Unleash Your Dream"];

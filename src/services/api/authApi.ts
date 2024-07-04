@@ -1,8 +1,6 @@
+import { loginProps } from "../../interfaces/loginForm.interface";
 import httpService from "../httpService";
 
-export const postLoginApi = () => {
-  return httpService.post("https://fakestoreapi.com/auth/login", {
-    username: "mor_2314",
-    password: "83r5^_",
-  });
+export const postLoginApi = (payload: loginProps) => {
+  return httpService.post("https://fakestoreapi.com/auth/login", payload);
 };
