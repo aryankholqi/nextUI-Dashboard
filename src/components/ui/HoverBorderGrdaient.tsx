@@ -1,5 +1,4 @@
-"use client";
-import React, { useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 
 import { motion } from "framer-motion";
 import { cn } from "../../utils/cn";
@@ -54,10 +53,11 @@ export function HoverBorderGradient({
       }, duration * 1000);
       return () => clearInterval(interval);
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [hovered]);
   return (
     <Tag
-      onMouseEnter={(__event: React.MouseEvent<HTMLDivElement>) => {
+      onMouseEnter={() => {
         setHovered(true);
       }}
       onMouseLeave={() => setHovered(false)}
@@ -69,7 +69,7 @@ export function HoverBorderGradient({
     >
       <div
         className={cn(
-          "w-auto text-white z-10 bg-black px-4 py-2 rounded-[inherit]",
+          "w-auto text-white z-10 bg-black rounded-[inherit]",
           className
         )}
       >

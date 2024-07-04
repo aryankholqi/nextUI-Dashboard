@@ -120,7 +120,7 @@ export default function LoginForm() {
         >
           <Button
             type="submit"
-            className="w-full bg-transparent text-white text-xl xl:text-lg 3xl:text-3xl"
+            className="w-full bg-transparent h-full text-white text-xl xl:text-lg 3xl:text-3xl"
             isLoading={isPending}
           >
             Login
