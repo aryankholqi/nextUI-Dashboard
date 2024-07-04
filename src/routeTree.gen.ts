@@ -11,13 +11,43 @@
 // Import Routes
 
 import { Route as rootRoute } from './routes/__root'
+import { Route as WalletImport } from './routes/wallet'
+import { Route as StatisticsImport } from './routes/statistics'
+import { Route as PaymentsImport } from './routes/payments'
+import { Route as MessagesImport } from './routes/messages'
 import { Route as LoginImport } from './routes/login'
+import { Route as CommentsImport } from './routes/comments'
 import { Route as IndexImport } from './routes/index'
 
 // Create/Update Routes
 
+const WalletRoute = WalletImport.update({
+  path: '/wallet',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const StatisticsRoute = StatisticsImport.update({
+  path: '/statistics',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const PaymentsRoute = PaymentsImport.update({
+  path: '/payments',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const MessagesRoute = MessagesImport.update({
+  path: '/messages',
+  getParentRoute: () => rootRoute,
+} as any)
+
 const LoginRoute = LoginImport.update({
   path: '/login',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const CommentsRoute = CommentsImport.update({
+  path: '/comments',
   getParentRoute: () => rootRoute,
 } as any)
 
@@ -37,6 +67,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexImport
       parentRoute: typeof rootRoute
     }
+    '/comments': {
+      id: '/comments'
+      path: '/comments'
+      fullPath: '/comments'
+      preLoaderRoute: typeof CommentsImport
+      parentRoute: typeof rootRoute
+    }
     '/login': {
       id: '/login'
       path: '/login'
@@ -44,12 +81,48 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LoginImport
       parentRoute: typeof rootRoute
     }
+    '/messages': {
+      id: '/messages'
+      path: '/messages'
+      fullPath: '/messages'
+      preLoaderRoute: typeof MessagesImport
+      parentRoute: typeof rootRoute
+    }
+    '/payments': {
+      id: '/payments'
+      path: '/payments'
+      fullPath: '/payments'
+      preLoaderRoute: typeof PaymentsImport
+      parentRoute: typeof rootRoute
+    }
+    '/statistics': {
+      id: '/statistics'
+      path: '/statistics'
+      fullPath: '/statistics'
+      preLoaderRoute: typeof StatisticsImport
+      parentRoute: typeof rootRoute
+    }
+    '/wallet': {
+      id: '/wallet'
+      path: '/wallet'
+      fullPath: '/wallet'
+      preLoaderRoute: typeof WalletImport
+      parentRoute: typeof rootRoute
+    }
   }
 }
 
 // Create and export the route tree
 
-export const routeTree = rootRoute.addChildren({ IndexRoute, LoginRoute })
+export const routeTree = rootRoute.addChildren({
+  IndexRoute,
+  CommentsRoute,
+  LoginRoute,
+  MessagesRoute,
+  PaymentsRoute,
+  StatisticsRoute,
+  WalletRoute,
+})
 
 /* prettier-ignore-end */
 
@@ -60,14 +133,34 @@ export const routeTree = rootRoute.addChildren({ IndexRoute, LoginRoute })
       "filePath": "__root.tsx",
       "children": [
         "/",
-        "/login"
+        "/comments",
+        "/login",
+        "/messages",
+        "/payments",
+        "/statistics",
+        "/wallet"
       ]
     },
     "/": {
       "filePath": "index.tsx"
     },
+    "/comments": {
+      "filePath": "comments.tsx"
+    },
     "/login": {
       "filePath": "login.tsx"
+    },
+    "/messages": {
+      "filePath": "messages.tsx"
+    },
+    "/payments": {
+      "filePath": "payments.tsx"
+    },
+    "/statistics": {
+      "filePath": "statistics.tsx"
+    },
+    "/wallet": {
+      "filePath": "wallet.tsx"
     }
   }
 }

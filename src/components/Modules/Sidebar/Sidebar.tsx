@@ -4,7 +4,7 @@ import LogoIcon from "../../../assets/icons/logo/Logo";
 import sideBarItem from "../../../constants/sideBarItem";
 import { useEffect } from "react";
 import CloseIcon from "../../../assets/icons/fill/Close";
-import { Link } from "@tanstack/react-router";
+import { Link, useLocation } from "@tanstack/react-router";
 import { useSidebarStore } from "../../../stores/useSidebar";
 import ExpandRightIcon from "../../../assets/icons/fill/ExpandRight";
 import "./Sidebar.css";
@@ -17,6 +17,8 @@ export default function Sidebar() {
     isSidebarExpanded,
     expandSidebarToggle,
   } = useSidebarStore();
+
+  const { pathname } = useLocation()
 
   const { revokeUser } = useRevokeUser();
 
@@ -35,22 +37,18 @@ export default function Sidebar() {
 
   return (
     <div
-      className={`bg-black px-5 py-4 h-[93.5dvh] transition-all duration-[250ms] rounded-[40px] ${
-        isSidebarExpanded ? "w-64" : "w-[70px]"
-      } absolute md:static z-50 ${
-        isSidebarOpen ? "left-5 !w-max sm:w-[40%]" : ""
-      } ${!isSidebarOpen ? "-left-96" : ""}`}
+      className={`bg-black px-5 py-4 h-[93.5dvh] transition-all duration-[250ms] rounded-[40px] ${isSidebarExpanded ? "w-64" : "w-[70px]"
+        } absolute md:static z-50 ${isSidebarOpen ? "left-5 !w-max sm:w-[40%]" : ""
+        } ${!isSidebarOpen ? "-left-96" : ""}`}
     >
       <div
-        className={`flex flex-col ${
-          isSidebarExpanded || isSidebarOpen ? "items-start" : "items-center"
-        } justify-between h-full relative`}
+        className={`flex flex-col ${isSidebarExpanded || isSidebarOpen ? "items-start" : "items-center"
+          } justify-between h-full relative`}
       >
         <MainTooltip content="Expand">
           <span
-            className={`hidden md:inline-block absolute -right-8 top-[50px] cursor-pointer transition-all duration-250 ${
-              isSidebarExpanded ? "rotate-180" : "rotate-0"
-            }`}
+            className={`hidden md:inline-block absolute -right-8 top-[50px] cursor-pointer transition-all duration-250 ${isSidebarExpanded ? "rotate-180" : "rotate-0"
+              }`}
             onClick={expandSidebarToggle}
           >
             <ExpandRightIcon />
@@ -70,24 +68,22 @@ export default function Sidebar() {
             </span>
           </div>
           <ul className="flex flex-col gap-4 mt-16">
-            {sideBarItem().map((item, index) => (
+            {sideBarItem(pathname).map((item, index) => (
               <li
                 key={index}
                 className="child-hover:text-primaryGreen child:text-white child:transition-all"
               >
-                <Link to="/" className="flex items-center gap-2">
-                  <MainTooltip key={index} content={item.content}>
+                <Link to={item.href} className="flex items-center gap-2">
+                  <MainTooltip key={index} content={item.title}>
                     <span className="cursor-pointer">
-                      <item.Icon />
+                      {item.Icon}
                     </span>
                   </MainTooltip>
-
                   <span
-                    className={`font-poppinsRegular ${
-                      !isSidebarExpanded && "md:hidden"
-                    }`}
+                    className={`font-poppinsRegular ${!isSidebarExpanded && "md:hidden"
+                      }`}
                   >
-                    {item.content}
+                    {item.title}
                   </span>
                 </Link>
               </li>
@@ -102,9 +98,8 @@ export default function Sidebar() {
           </MainTooltip>
 
           <span
-            className={`text-white font-poppinsRegular transition-all hover:text-danger-600 ${
-              !isSidebarExpanded && "md:hidden"
-            }`}
+            className={`text-white font-poppinsRegular transition-all hover:text-danger-600 ${!isSidebarExpanded && "md:hidden"
+              }`}
           >
             Signout
           </span>

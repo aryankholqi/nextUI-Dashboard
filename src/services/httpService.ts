@@ -1,4 +1,5 @@
 import axios from "axios";
+import toast from "react-hot-toast";
 
 axios.interceptors.request.use(
   function (config) {
@@ -17,6 +18,7 @@ axios.interceptors.response.use(
     return response;
   },
   function (error) {
+    toast.error(error.response.data);
     return Promise.reject(error);
   }
 );
