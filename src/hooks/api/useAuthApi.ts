@@ -17,9 +17,7 @@ export const useLoginMutation = (reset: () => void) => {
       navigate({
         to: "/",
       });
-    },
-    onError: () => {
-      toast.error("Error");
+      toast.success("Logged In");
     },
   });
 };
