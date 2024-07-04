@@ -7,7 +7,6 @@ import CloseIcon from "../../../assets/icons/fill/Close";
 import { Link, useLocation } from "@tanstack/react-router";
 import { useSidebarStore } from "../../../stores/useSidebar";
 import ExpandRightIcon from "../../../assets/icons/fill/ExpandRight";
-import "./Sidebar.css";
 import { useRevokeUser } from "../../../hooks/useRevokeUser";
 
 export default function Sidebar() {
