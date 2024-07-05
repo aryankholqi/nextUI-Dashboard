@@ -7,7 +7,7 @@ First of All for running the project you should do these three steps:
 1:
 
 ```
-`git clone https://github.com/aryankholqi/nextUI-Dashboard.git`
+git clone https://github.com/aryankholqi/nextUI-Dashboard.git
 ```
 
 2:
