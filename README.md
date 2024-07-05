@@ -2,6 +2,12 @@
 
 **Glad you chose us to develop your project.**
 
+## Skills
+
+> dsdsad
+
+## Run Project
+
 First of All for running the project you should do these three steps:
 
 1:
@@ -31,7 +37,7 @@ At first you face the login page, because the nature of dashboard panels, which 
 
 ![1720134341919](image/README/1720134341919.png)
 
-We've used **fakestoreapi** login api to get an access token for working like a real authorization scenarios **(Note that you should always login with this username and password to access to dashboard )**. We've managed token with **js-cookie** library.
+> We've used **fakestoreapi** login api to get an access token for working like a real authorization scenarios **(Note that you should always login with this username and password to access to dashboard )**. We've managed token with **js-cookie** library.
 
 ## Dashboard (Home)
 
@@ -47,7 +53,7 @@ well, when you successfully logged in, you'll face the dashboard layout which we
 
 ![1720135015714](image/README/1720135015714.png)
 
-We want to go straight forward to src folder:
+> We want to go straight forward to src folder:
 
 - **assets** => includes all **icons** and **images** we've been used in the project
 - **components** => All sections are devided into **template/module** component:
