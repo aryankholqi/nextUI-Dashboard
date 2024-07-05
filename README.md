@@ -23,7 +23,7 @@ pnpm install
 pnpm run dev
 ```
 
-ok... the project is running in you local.
+ok... the project is running on your local.
 
 ## Login
 
