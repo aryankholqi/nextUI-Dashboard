@@ -4,20 +4,20 @@
 
 ## Skills
 
-> - React.js
-> - Typescript
-> - Tanstack/react-router
-> - Next-UI
-> - Farmer-motion
-> - Tailwind
-> - Tanstack/react-query
-> - axios
-> - clsx
-> - js-cookie
-> - react-hot-toast
-> - Zustand
-> - react-hook-form
-> - react-helmet
+- React.js
+- Typescript
+- Tanstack/react-router
+- Next-UI
+- Farmer-motion
+- Tailwind
+- Tanstack/react-query
+- axios
+- clsx
+- js-cookie
+- react-hot-toast
+- Zustand
+- react-hook-form
+- react-helmet
 
 ## Run Project
 
