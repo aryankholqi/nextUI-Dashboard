@@ -1,8 +1,8 @@
 # NextUI-Dashboard (Starter Version)
 
-**Glad that you chose us to develop your project.**
+**Glad you chose us to develop your project.**
 
-First of All for running project you should just these three steps:
+First of All for running the project you should do these three steps:
 
 1:
 
