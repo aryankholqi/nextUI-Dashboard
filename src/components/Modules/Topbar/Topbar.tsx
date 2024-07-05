@@ -25,18 +25,17 @@ export default function Topbar() {
           <MenuIcon />
         </span>
         {!isSidebarOpen && (
-          <h1 className="font-poppinsRegular text-2xl sm:text-3xl">Overview</h1>
+          <h1 className="font-poppinsRegular text-lg 2xs:text-2xl sm:text-3xl">Overview</h1>
         )}
       </div>
 
-      <div className="flex items-center gap-1 sm:gap-5">
+      <div className="flex items-center gap-.5 2xs:gap-1 sm:gap-5">
         <Input
           classNames={{
             inputWrapper: ["rounded-full"],
           }}
-          className={`font-poppinsRegular hidden ${
-            isSidebarExpanded ? "lg:hidden lgb:block" : "lg:block"
-          }`}
+          className={`font-poppinsRegular hidden ${isSidebarExpanded ? "lg:hidden lgb:block" : "lg:block"
+            }`}
           startContent={<SearchIcon />}
           endContent={
             <Kbd className="" keys={["command"]}>
@@ -47,9 +46,8 @@ export default function Topbar() {
         />
         <PopOver content={<SearchPopoverContent />}>
           <span
-            className={`cursor-pointer block ${
-              isSidebarExpanded ? "lg:block lgb:hidden" : "lg:hidden"
-            }`}
+            className={`cursor-pointer block ${isSidebarExpanded ? "lg:block lgb:hidden" : "lg:hidden"
+              }`}
           >
             <SearchIcon />
           </span>
@@ -69,9 +67,8 @@ export default function Topbar() {
         </div>
         <Divider className="rotate-90 w-5 h-[2px] bg-primaryGray" />
         <div
-          className={`hidden ${
-            isSidebarExpanded ? "md:hidden" : "md:block"
-          } mdb:block`}
+          className={`hidden ${isSidebarExpanded ? "md:hidden" : "md:block"
+            } mdb:block`}
         >
           <PopOver content={<UserPopoverContent />}>
             <div className="cursor-pointer">
@@ -83,9 +80,8 @@ export default function Topbar() {
           <div>
             <Avatar
               src={userImage}
-              className={`block ${
-                isSidebarExpanded ? "md:block" : "md:hidden"
-              } mdb:hidden cursor-pointer`}
+              className={`block ${isSidebarExpanded ? "md:block" : "md:hidden"
+                } mdb:hidden cursor-pointer`}
             />
           </div>
         </PopOver>
