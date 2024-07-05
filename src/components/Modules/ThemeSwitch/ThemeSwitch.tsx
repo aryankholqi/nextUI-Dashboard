@@ -3,7 +3,7 @@ import MoonIcon from '../../../assets/icons/fill/Moon'
 import { useTheme } from 'next-themes'
 import SunIcon from '../../../assets/icons/fill/Sun'
 
-export default function ThemeSwitch() {
+export default function ThemeSwitch({ hasLabel = false }: { hasLabel: boolean }) {
     const { theme, setTheme } = useTheme()
     const isLightMode = theme === "light"
 
@@ -16,10 +16,12 @@ export default function ThemeSwitch() {
         }
     }
     return (
-        <MainTooltip content={isLightMode ? `Dark Mode` : `Light Mode`}>
-            <span onClick={changeThemeHandler} className='cursor-pointer hidden sm:block'>
-                {isLightMode ? <MoonIcon /> : <SunIcon />}
-            </span>
-        </MainTooltip>
+
+        <div onClick={changeThemeHandler} className='flex justify-between items-center cursor-pointer'>
+            {hasLabel ? isLightMode ? "Dark Mode" : "Light Mode" : null}
+            <MainTooltip content={isLightMode ? `Dark Mode` : `Light Mode`}>
+                <span>{isLightMode ? <MoonIcon /> : <SunIcon />}</span>
+            </MainTooltip>
+        </div >
     )
 }

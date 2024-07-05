@@ -3,9 +3,8 @@ import MainUserCard from '../../UserCard/MainUserCard'
 import { Link } from '@tanstack/react-router'
 import SignoutIcon from '../../../../assets/icons/fill/Signout'
 import { useTheme } from 'next-themes'
-import MoonIcon from '../../../../assets/icons/fill/Moon'
-import SunIcon from '../../../../assets/icons/fill/Sun'
 import { useRevokeUser } from '../../../../hooks/useRevokeUser'
+import ThemeSwitch from '../../ThemeSwitch/ThemeSwitch'
 
 export default function UserPopoverContent() {
     const { theme, setTheme } = useTheme()
@@ -38,9 +37,8 @@ export default function UserPopoverContent() {
                 <li>
                     <Link to="">Change Password</Link>
                 </li>
-                <li onClick={changeThemeHandler} className='flex justify-between items-center sm:hidden'>
-                    {isLightMode ? "Dark Mode" : "Light Mode"}
-                    {isLightMode ? <MoonIcon /> : <SunIcon />}
+                <li onClick={changeThemeHandler} className='sm:hidden'>
+                    <ThemeSwitch hasLabel={true} />
                 </li>
             </ul>
             <Divider className="my-2" />
