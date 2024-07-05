@@ -4,26 +4,33 @@
 
 ## Skills
 
-> dsdsad
+> - React.js
+> - Typescript
+> - Tanstack/react-router
+> - Next-UI
+> - Farmer-motion
+> - Tailwind
+> - Tanstack/react-query
+> - axios
+> - clsx
+> - js-cookie
+> - react-hot-toast
+> - Zustand
+> - react-hook-form
+> - react-helmet
 
 ## Run Project
 
 First of All for running the project you should do these three steps:
 
-1:
-
 ```
 git clone https://github.com/aryankholqi/nextUI-Dashboard.git
 ```
-
-2:
 
 ```
 cd nextUI-Dashboard
 pnpm install
 ```
-
-3:
 
 ```
 pnpm run dev
