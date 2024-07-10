@@ -30,6 +30,9 @@ export default {
       poppinsBold: ["Poppins-Bold"],
     },
     extend: {
+      borderRadius: {
+        "4xl": "46px",
+      },
       colors: {
         primaryGreen: "#00FF6B",
         primaryGray: "#B6B6B6",
