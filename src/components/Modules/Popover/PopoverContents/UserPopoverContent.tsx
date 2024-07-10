@@ -43,7 +43,7 @@ export default function UserPopoverContent() {
       </ul>
       <Divider className="my-2" />
       <div
-        className="flex items-center justify-between gap-2 hover:text-white hover:bg-danger-700 translate-x-0 duration-200 w-full p-2 cursor-pointer rounded-lg"
+        className="flex items-center justify-between gap-2 hover:text-white hover:bg-red-700 translate-x-0 duration-200 w-full p-2 cursor-pointer rounded-lg"
         onClick={revokeUser}
       >
         <span>Sign out</span>
