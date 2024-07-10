@@ -9,7 +9,7 @@ export default function YourCards() {
       <div className="flex items-center justify-between">
         <div className="space-y-2">
           <h3 className="text-3xl">Your Cards</h3>
-          <Chip className="bg-info-10 dark:bg-blue-950 text-base dark:text-white">
+          <Chip className="bg-[#DAE1FE] dark:bg-blue-950 text-base dark:text-white">
             Premium
           </Chip>
         </div>
