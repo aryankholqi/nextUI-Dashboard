@@ -5,7 +5,7 @@ import creditCardsInfo from "../../../mock/creditCardsInfo";
 
 export default function YourCards() {
   return (
-    <Card className="p-8 bg-white dark:bg-black dark:text-white rounded-4xl shadow-none space-y-10">
+    <Card className="p-8 bg-white dark:bg-black dark:text-white rounded-4xl shadow-none space-y-10 flex flex-col justify-between">
       <div className="flex items-center justify-between">
         <div className="space-y-2">
           <h3 className="text-3xl">Your Cards</h3>
@@ -17,9 +17,9 @@ export default function YourCards() {
           <Plus />
         </span>
       </div>
-      <div className="flex items-center child:flex-shrink-0 gap-5 overflow-x-scroll">
-        {creditCardsInfo().map((card) => (
-          <CreditCardBox {...card} />
+      <div className="flex overflow-x-auto space-x-4 pb-4">
+        {creditCardsInfo().map((card, index) => (
+          <CreditCardBox key={index} {...card} />
         ))}
       </div>
     </Card>

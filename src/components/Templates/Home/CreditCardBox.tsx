@@ -10,7 +10,7 @@ export default function CreditCardBox({
 }: creditCardsProp) {
   return (
     <Card
-      className={`pb-4 px-7 text-white dark:text-black space-y-5 ${color} rounded-[32px] shadow-none`}
+      className={`pb-4 px-7 text-white dark:text-black space-y-5 ${color} rounded-[32px] shadow-none min-w-[250px]`}
     >
       <div className="flex items-center justify-between gap-10">
         <h2>${balance}</h2>

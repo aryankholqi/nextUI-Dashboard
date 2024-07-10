@@ -25,6 +25,7 @@
     "react-helmet": "^6.1.0",
     "react-hook-form": "^7.52.0",
     "react-hot-toast": "^2.4.1",
+    "recharts": "^2.12.7",
     "tailwind-merge": "^2.3.0",
     "zustand": "^4.5.4"
   },

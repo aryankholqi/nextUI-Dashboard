@@ -10,7 +10,7 @@ export default function TotalBalance() {
         <div className="space-y-2">
           <h2 className="text-3xl">Total Balance</h2>
           <div className="flex items-center gap-2">
-            <span className="text-5xl">$20,670</span>
+            <span className="text-4xl xl:text-6xl 2xl:text-7xl">$20,670</span>
             <span className="self-start">USD</span>
           </div>
         </div>
@@ -18,7 +18,7 @@ export default function TotalBalance() {
           <Plus />
         </div>
       </div>
-      <div className="grid grid-cols-2 gap-4 child:rounded-full child:text-lg child:py-5 child:px-6">
+      <div className="grid grid-cols-2 gap-4 child:rounded-full child:text-base child:xl:text-2xl child:py-5 child:xl:py-8 child:px-6">
         <Button endContent={<ArrowDown />} className="bg-white dark:bg-black">
           Deposit
         </Button>
