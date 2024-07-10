@@ -1,11 +1,17 @@
+import AreaChartBox from "../../components/Templates/Home/AreaChartBox";
 import TotalBalance from "../../components/Templates/Home/TotalBalance";
 import YourCards from "../../components/Templates/Home/YourCards";
 
 export default function Home() {
   return (
-    <div className="grid grid-cols-3 gap-8 mt-5">
-      <TotalBalance />
-      <YourCards />
+    <div className="flex gap-5 mt-5">
+      <div className="grid grid-cols-2 gap-5 w-[72%]">
+        <TotalBalance />
+        <AreaChartBox />
+      </div>
+      <div className="w-[28%]">
+        <YourCards />
+      </div>
     </div>
   );
 }
