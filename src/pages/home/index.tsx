@@ -12,6 +12,7 @@ export default function Home() {
       <div className="w-[28%]">
         <YourCards />
       </div>
+
     </div>
   );
 }

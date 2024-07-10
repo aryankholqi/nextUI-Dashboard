@@ -6,7 +6,7 @@ export default function AreaChartBox() {
   return (
     <Card className="p-8 bg-white dark:bg-black dark:text-white rounded-4xl shadow-none space-y-5 flex flex-col justify-between">
       <div className="flex justify-between">
-        <div className="space-y-3">
+        <div className="space-y-3 font-poppinsRegular">
           <h3 className="text-3xl">Income</h3>
           <Chip
             className="bg-[#CCFFCD] dark:text-black text-xs"
