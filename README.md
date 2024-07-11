@@ -43,7 +43,7 @@ ok... the project is running on your local.
 
 At first you face the login page, because the nature of dashboard panels, which is **authenticated**:
 
-![1720134341919](image/README/1720134341919.png)
+![1720134341919](image/README/login.png)
 
 > We've used **fakestoreapi** login api to get an access token for working like a real authorization scenarios **(Note that you should always login with this username and password to access to dashboard )**. We've managed token with **js-cookie** library.
 
@@ -51,11 +51,13 @@ At first you face the login page, because the nature of dashboard panels, which 
 
 well, when you successfully logged in, you'll face the dashboard layout which we really love it:
 
-![1720134683209](image/README/1720134683209.png)
+![1720134683209](image/README/dashboardDark1.png)
 
-![1720134730641](image/README/1720134730641.png)
+![1720134730641](image/README/dashboardLight1.png)
 
-![1720134770041](image/README/1720134770041.png)
+![1720134770041](image/README/dashboardDark2.png)
+
+![1720738083458](image/README/1720738083458.png)
 
 ## Folder Structure
 
