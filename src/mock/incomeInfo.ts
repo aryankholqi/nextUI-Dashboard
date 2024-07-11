@@ -12,10 +12,6 @@ export const incomeInfo = () => {
         light: "#CCFFCD",
         dark: "#004C01",
       },
-      indicatorBgColor: {
-        light: "#00FF6B",
-        dark: "#1AFF79",
-      },
     },
     {
       id: 2,
@@ -25,10 +21,6 @@ export const incomeInfo = () => {
       iconBgColor: {
         light: "#FFEBDD",
         dark: "#3B1900",
-      },
-      indicatorBgColor: {
-        light: "#FF6756",
-        dark: "#FF7E70",
       },
     },
   ];
