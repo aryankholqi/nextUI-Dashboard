@@ -58,7 +58,7 @@ export function currenciesMarketTableInfo() {
       status: "pending",
       icon: EstyIcon,
     },
-        {
+    {
       id: "5",
       name: "Apple TV+",
       amount: "110",
