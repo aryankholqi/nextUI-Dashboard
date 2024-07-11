@@ -75,7 +75,7 @@ well, when you successfully logged in, you'll face the dashboard layout which we
   1. api: for each api we've developed a custom tanstack/query hook to manage api call and we used it inside the component which that api should be called
 - **interfaces** => yeaaah. the project is **typescript** supported. we've managed all interfaces that we needed here.
 - **layouts** => as you might noticed this project has 2 different layouts. one for Login and the other one is for the whole dashboard. so we have **AuthLayout.tsx** for Login route and **DashboardLayout.tsx** for all other routes (authorized ones)
-- mock => for some components which need data from api, we simulated it as mock but it's not an api, it's just a function which returns the data the component wants
+- **mock** => for some components which need data from api, we simulated it as mock but it's not an api, it's just a function which returns the data the component wants
 - **pages** => each route means a page to us. so for each page we've created a folder in here, its name is matched by the pathname of the url. (we've treated like next.js pages route here XD)
 - **routes** => if you've never worked with tanstack/router, don't worry! the routing system is as easy as it is. for each route you wanna create, you should just create a file matched with the name of the route. it will automatically do the things for you ;)
 - **services** => the api requests all are in here. we've developed an axios interceptor called **httpService** to handle the requests.
