@@ -4,10 +4,10 @@ import { ReactNode } from 'react'
 export default function MainTooltip({ children, content, className }: { children: ReactNode, content: string, className?: string }) {
     return (
         <Tooltip
-            content={<p className={`text-xs font-poppinsRegular ${className}`}>{content}</p>}
+            content={<p className={`text-sm font-poppinsMedium ${className}`}>{content}</p>}
             className='rounded-md p-2'
             showArrow
-            delay={1000}
+            delay={500}
             closeDelay={500}
         >
             {children}
