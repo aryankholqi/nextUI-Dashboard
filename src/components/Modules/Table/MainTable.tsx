@@ -111,7 +111,11 @@ export default function MainTable({ columns, initialVisibleColumns, data, render
                   items={rowsOfPage}
                   label={"Rows"}
                   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-                  onSelectionChange={(value: any) => onChange(value.currentKey)}
+                  onSelectionChange={(value: any) => {
+                    onChange(value.currentKey)
+                    resetField("page")
+                  }
+                  }
                   classNames={{
                     trigger: ["min-h-10 h-10"],
                     label: ["text-black dark:text-white"],
