@@ -1,5 +1,5 @@
 import { Card } from "@nextui-org/react";
-import currencieMarketInfo from "../../../mock/currencieMarketInfo";
+import { currencieMarketInfo } from "../../../mock/currencieMarketInfo";
 import CurrenciesMarketDetailBox from "./CurrenciesMarketDetailBox";
 
 export default function CurrenciesMarket() {

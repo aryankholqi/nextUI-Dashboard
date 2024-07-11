@@ -1,4 +1,4 @@
-import { Key, useCallback, useMemo } from "react";
+import { useCallback, useMemo } from "react";
 import {
   Table,
   TableHeader,
@@ -12,40 +12,25 @@ import {
   Dropdown,
   DropdownMenu,
   DropdownItem,
-  Chip,
   Pagination,
   Select,
   SelectItem,
 } from "@nextui-org/react";
-import VerticalDotsIcon from "../../../assets/icons/fill/VerticalDots";
 import SearchIcon from "../../../assets/icons/fill/Search";
 import ChevronDownIcon from "../../../assets/icons/fill/ChevronDown";
-import { columns, currenciesMarket } from "./data";
 import PlusIcon from "../../../assets/icons/fill/Plus";
 import { Controller, useForm } from "react-hook-form";
-import { currenyMarketsProps } from "../../../interfaces/currenyMarkerts.interface";
-import formatPrice from "../../../utils/formatPrice";
-import convertTimestampsToDate from "../../../utils/convertTimestampsToDate";
+import { mainTableProps } from "../../../interfaces/mainTable.interface";
 
-const statusColorMap: {
-  paid: "success";
-  overdue: "danger";
-  pending: "warning";
-  [key: string]: "success" | "danger" | "warning";
-} = {
-  paid: "success",
-  overdue: "danger",
-  pending: "warning",
-};
 
-const initialVisibleColumns = ["name", "amount", "date", "status", "actions"];
+
 const rowsOfPage = [
   { key: 5, label: "5" },
   { key: 10, label: "10" },
   { key: 15, label: "15" },
 ];
 
-export default function MainTable() {
+export default function MainTable({ columns, initialVisibleColumns, data, renderCell }: mainTableProps) {
   const { control, watch, resetField } = useForm({
     defaultValues: {
       search: "",
@@ -64,13 +49,13 @@ export default function MainTable() {
     // @ts-expect-error Becuase visibleColumns is a Set of array.
     if (visibleColumns === "all") return columns;
 
-    return columns.filter((column) =>
+    return columns.filter((column: { name: string, uid: string }) =>
       Array.from(visibleColumns).includes(column.uid)
     );
-  }, [visibleColumns]);
+  }, [visibleColumns, columns]);
 
   const filteredItems = useMemo(() => {
-    let filteredUsers = [...currenciesMarket];
+    let filteredUsers = [...data];
 
     if (searchText.trim()) {
       filteredUsers = filteredUsers.filter((currency) =>
@@ -79,7 +64,7 @@ export default function MainTable() {
     }
 
     return filteredUsers;
-  }, [searchText]);
+  }, [searchText, data]);
 
   const pages = Math.ceil(filteredItems.length / rowsPerPage);
 
@@ -89,57 +74,6 @@ export default function MainTable() {
 
     return filteredItems.slice(start, end);
   }, [page, filteredItems, rowsPerPage]);
-
-  const renderCell = useCallback(
-    (currency: currenyMarketsProps, columnKey: Key) => {
-      const cellValue = currency[columnKey as keyof currenyMarketsProps];
-
-      switch (columnKey) {
-        case "name":
-          return (
-            <div className="flex items-center gap-4">
-              <currency.icon />
-              <p>{currency.name}</p>
-            </div>
-          );
-        case "amount":
-          return <p>{formatPrice(currency.amount)}</p>;
-        case "date":
-          return <p>{convertTimestampsToDate(currency.date)}</p>;
-        case "status":
-          return (
-            <Chip
-              className="capitalize"
-              color={statusColorMap[currency.status]}
-              size="sm"
-              variant="flat"
-            >
-              {cellValue}
-            </Chip>
-          );
-        case "actions":
-          return (
-            <div className="relative flex justify-end items-center gap-2">
-              <Dropdown>
-                <DropdownTrigger>
-                  <Button isIconOnly size="sm" variant="light">
-                    <VerticalDotsIcon />
-                  </Button>
-                </DropdownTrigger>
-                <DropdownMenu>
-                  <DropdownItem>View</DropdownItem>
-                  <DropdownItem>Edit</DropdownItem>
-                  <DropdownItem>Delete</DropdownItem>
-                </DropdownMenu>
-              </Dropdown>
-            </div>
-          );
-        default:
-          return cellValue;
-      }
-    },
-    []
-  );
 
   const onClear = useCallback(() => {
     resetField("search");
@@ -208,7 +142,7 @@ export default function MainTable() {
                     selectionMode="multiple"
                     onSelectionChange={(value) => onChange(value)}
                   >
-                    {columns.map((column) => (
+                    {columns.map((column: { name: string, uid: string }) => (
                       <DropdownItem key={column.uid} className="capitalize">
                         {column.name}
                       </DropdownItem>
@@ -224,7 +158,7 @@ export default function MainTable() {
         </div>
       </div>
     ),
-    [control, onClear, resetField]
+    [control, onClear, resetField, columns]
   );
 
   const bottomContent = useMemo(
@@ -262,7 +196,7 @@ export default function MainTable() {
       topContent={topContent}
     >
       <TableHeader columns={headerColumns}>
-        {(column) => (
+        {(column: { name: string, uid: string }) => (
           <TableColumn
             key={column.uid}
             align={column.uid === "actions" ? "center" : "start"}
