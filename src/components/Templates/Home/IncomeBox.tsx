@@ -2,6 +2,7 @@ import { Card, CircularProgress } from "@nextui-org/react";
 import formatPrice from "../../../utils/formatPrice";
 import { incomeProps } from "../../../interfaces/income.interface";
 import { useTheme } from "next-themes";
+import { useSidebarStore } from "../../../stores/useSidebar";
 
 export default function IncomeBox({
   id,
@@ -11,11 +12,12 @@ export default function IncomeBox({
   percentage,
 }: incomeProps) {
   const { theme } = useTheme();
+  const { isSidebarExpanded } = useSidebarStore()
 
   const iconbg = theme === "light" ? iconBgColor.light : iconBgColor.dark;
   return (
     <Card className="p-6 bg-white dark:bg-black dark:text-white rounded-4xl shadow-none space-y-4 flex flex-col justify-between">
-      <div className="flex items-center justify-between gap-10">
+      <div className="flex items-center justify-between gap-8 xl:gap-10">
         <div className="space-y-4 mb-8">
           <span
             style={{ backgroundColor: iconbg }}
@@ -27,12 +29,11 @@ export default function IncomeBox({
         </div>
         <CircularProgress
           classNames={{
-            svg: "w-36 h-36",
-            indicator: `${
-              id === 1
-                ? "stroke-[#00FF6B] dark:stroke-[#1AFF79]"
-                : "stroke-[#FF6756] dark:stroke-[#FF7E70]"
-            }`,
+            svg: `${isSidebarExpanded ? "!size-24" : "!size-36"}`,
+            indicator: `${id === 1
+              ? "stroke-[#00FF6B] dark:stroke-[#1AFF79]"
+              : "stroke-[#FF6756] dark:stroke-[#FF7E70]"
+              }`,
             track: "stroke-[#F3F4F7] dark:stroke-[#373737]",
             value:
               "text-lg font-poppinsRegular text-primaryGray dark:text-[#B6B6B6]",

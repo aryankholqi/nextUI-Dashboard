@@ -16,7 +16,7 @@ export default function TinyBarChart() {
         },
         {
             name: 'Page C',
-            uv: 3500,
+            uv: 3300,
             pv: 9800,
             amt: 2290,
         },
@@ -28,16 +28,16 @@ export default function TinyBarChart() {
         },
         {
             name: 'Page E',
-            uv: 3000,
+            uv: 2800,
             pv: 4800,
             amt: 2181,
         },
 
     ];
     return (
-        <div style={{ width: '100%', height: 300 }}>
+        <div style={{ width: '100%', height: 200 }}>
             <ResponsiveContainer>
-                <BarChart data={data} barSize={30}>
+                <BarChart data={data} barSize={25}>
                     <Bar dataKey="uv" radius={[50, 50, 50, 50]}>
                         {data.map((entry, index) => (
                             <Cell key={`cell-${index}`} className={index === 2 ? "fill-[#000] dark:fill-white" : "fill-[#00FF6B] dark:fill-[#1AFF79]"} {...entry} />

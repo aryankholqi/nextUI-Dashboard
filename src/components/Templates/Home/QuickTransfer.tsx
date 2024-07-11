@@ -4,6 +4,9 @@ import quickTransferInf from "../../../mock/quickTransferInf";
 import ukFlag from "../../../assets/pictures/flag/ukFlag.jpg";
 import AmountRightTop from "../../../assets/icons/fill/AmountRightTop";
 import { useTheme } from "next-themes";
+import { Link } from "@tanstack/react-router";
+import MainTooltip from "../../Modules/Tooltip/MainTooltip";
+import formatPrice from "../../../utils/formatPrice";
 
 export default function QuickTransfer() {
   const { theme } = useTheme();
@@ -12,9 +15,9 @@ export default function QuickTransfer() {
     <Card className="p-8 bg-white dark:bg-black dark:text-white rounded-4xl shadow-none space-y-5 flex flex-col justify-between">
       <div className="flex items-center justify-between">
         <h3 className="text-3xl 2xl:text-2xl">Quick Transfer</h3>
-        <span className="text-[#4660F2] text-lg 2xl:text-sm">View all</span>
+        <Link className="text-[#4660F2] text-lg 2xl:text-sm text-nowrap">View all</Link>
       </div>
-      <div className="flex items-center overflow-x-scroll gap-3 child:w-[80px] child:h-[129px] child:p-2 child:rounded-[32px]">
+      <div className="flex items-center overflow-x-scroll gap-3 child:w-[80px] child:h-[129px] child:rounded-[32px]">
         {quickTransferInf().map((item, index) => (
           <User
             style={{
@@ -22,23 +25,26 @@ export default function QuickTransfer() {
                 theme === "dark" ? item.color.dark : item.color.light,
             }}
             key={index}
-            className="flex flex-col"
+            className="flex flex-col p-2"
             name={item.name}
             avatarProps={{
               src: item.profile,
               size: "lg",
+              className: "mb-5"
             }}
           />
         ))}
-        <span className="flex items-center cursor-pointer justify-center border border-dashed border-black dark:border-white">
-          <PlusIcon />
-        </span>
+        <MainTooltip content="Add Quick Transfer">
+          <span className="flex items-center cursor-pointer justify-center border border-dashed border-black dark:border-white !p-5">
+            <PlusIcon />
+          </span>
+        </MainTooltip>
       </div>
       <div className="flex items-center justify-between gap-2 bg-[#F3F4F7] dark:bg-[#373737] py-3.5 px-[22px] rounded-full">
         <div className="flex items-center gap-2">
           <Image src={ukFlag} className="size-10" radius="full" />
-          <span className="text-2xl 2xl:text-4xl font-poppinsRegular">
-            $2,768
+          <span className="text-xl font-poppinsRegular">
+            {formatPrice("2768")}
           </span>
         </div>
         <span className="bg-white dark:bg-black rounded-full p-3">
