@@ -1,4 +1,5 @@
 import AreaChartBox from "../../components/Templates/Home/AreaChartBox";
+import QuickTransfer from "../../components/Templates/Home/QuickTransfer";
 import TotalBalance from "../../components/Templates/Home/TotalBalance";
 import YourCards from "../../components/Templates/Home/YourCards";
 
@@ -11,6 +12,7 @@ export default function Home() {
       </div>
       <div className="w-[28%]">
         <YourCards />
+        <QuickTransfer />
       </div>
     </div>
   );

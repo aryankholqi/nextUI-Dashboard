@@ -1,5 +1,5 @@
-import usaFlag from "../assets/pictures/flag/cropped-1920-1080-476409.jpg";
-import flag2 from "../assets/pictures/flag/a73a7c9977294c9b3ad7fff24ad4f842.png";
+import usaFlag from "../assets/pictures/flag/usaFlag.jpg";
+import flag from "../assets/pictures/flag/flag.png";
 
 export default function currencieMarketInfo() {
   return [
@@ -11,7 +11,7 @@ export default function currencieMarketInfo() {
       profit: 14.4,
     },
     {
-      country: flag2,
+      country: flag,
       currency: "EUR",
       value: -0.0086,
       price: 1.0656,
