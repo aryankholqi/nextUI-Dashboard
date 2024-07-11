@@ -3,7 +3,7 @@ import { AreaChart, Area, XAxis, Tooltip, ResponsiveContainer } from "recharts";
 
 export default function StackedAreaChart() {
   const { theme } = useTheme()
-
+  const isLightMode = theme === "light"
   const data = [
     {
       name: "Jun",
@@ -31,7 +31,7 @@ export default function StackedAreaChart() {
     },
   ];
 
-  const areaPvStroke = theme === "light" ? "#000" : "#FFF"
+  const areaPvStroke = isLightMode ? "#000" : "#FFF"
 
   return (
     <ResponsiveContainer width={"100%"} height={"100%"}>
@@ -47,7 +47,9 @@ export default function StackedAreaChart() {
           </linearGradient>
         </defs>
         <XAxis dataKey="name" />
-        <Tooltip />
+        <Tooltip contentStyle={{
+          backgroundColor: isLightMode ? "white" : "black"
+        }} />
         <Area
           type="monotone"
           dataKey="uv"

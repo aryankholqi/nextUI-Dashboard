@@ -1,7 +1,7 @@
-import MainTable from "../../components/Modules/Table/MainTable";
 import AreaChartBox from "../../components/Templates/Home/AreaChartBox";
 import BarChartBox from "../../components/Templates/Home/BarChartBox";
 import CurrenciesMarket from "../../components/Templates/Home/CurrenciesMarket";
+import CurrenciesMarketTable from "../../components/Templates/Home/CurrenciesMarketTable";
 import IncomeBox from "../../components/Templates/Home/IncomeBox";
 import QuickTransfer from "../../components/Templates/Home/QuickTransfer";
 import TotalBalance from "../../components/Templates/Home/TotalBalance";
@@ -30,7 +30,7 @@ export default function Home() {
             <CurrenciesMarket />
           </div>
           <div className="md:col-span-2 2xl:col-span-3">
-            <MainTable />
+            <CurrenciesMarketTable />
           </div>
         </div>
         <div className="col-span-12 grid md:grid-cols-2 2xl:grid-cols-1 2xl:col-span-3 row-span-12 space-y-8 !ms-0 2xl:!ms-8 2xl:!mt-0">
