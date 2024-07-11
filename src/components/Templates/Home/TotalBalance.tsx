@@ -7,22 +7,22 @@ import formatPrice from "../../../utils/formatPrice";
 
 export default function TotalBalance() {
   return (
-    <Card className="bg-primaryGreen p-8 rounded-4xl flex flex-col justify-between text-black shadow-none">
-      <div className="flex items-center justify-between">
+    <Card className="bg-primaryGreen p-8 rounded-4xl flex flex-col justify-between space-y-8 text-black shadow-none">
+      <div className="flex items-center gap-4 justify-between">
         <div className="space-y-2 font-poppinsRegular">
-          <h2 className="text-3xl">Total Balance</h2>
+          <h2 className="text-2xl">Total Balance</h2>
           <div className="flex items-center gap-2">
-            <span className="text-5xl">{formatPrice("20760")}</span>
+            <span className="text-[32px]">{formatPrice("20760")}</span>
             <span className="self-start">USD</span>
           </div>
         </div>
         <MainTooltip content="Add Balance">
-          <span className="bg-white dark:bg-black p-3 rounded-full cursor-pointer">
+          <span className="bg-white dark:bg-black p-2 xl:p-3 rounded-full cursor-pointer">
             <Plus />
           </span>
         </MainTooltip>
       </div>
-      <div className="grid grid-cols-2 gap-4 child:rounded-full child:text-lg child:py-5 child:xl:py-7">
+      <div className="grid grid-cols-2 gap-4 child:rounded-full child:text-base child:py-5 child:xl:py-7">
         <Button endContent={<ArrowDown />} className="bg-white dark:bg-black">
           Deposit
         </Button>

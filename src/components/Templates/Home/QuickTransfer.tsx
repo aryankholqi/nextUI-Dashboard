@@ -10,7 +10,10 @@ export default function QuickTransfer() {
 
   return (
     <Card className="p-8 bg-white dark:bg-black dark:text-white rounded-4xl shadow-none space-y-5 flex flex-col justify-between">
-      <h3>Quick Transfer</h3>
+      <div className="flex items-center justify-between">
+        <h3 className="text-3xl 2xl:text-2xl">Quick Transfer</h3>
+        <span className="text-[#4660F2] text-lg 2xl:text-sm">View all</span>
+      </div>
       <div className="flex items-center overflow-x-scroll gap-3 child:w-[80px] child:h-[129px] child:p-2 child:rounded-[32px]">
         {quickTransferInf().map((item, index) => (
           <User
@@ -27,7 +30,7 @@ export default function QuickTransfer() {
             }}
           />
         ))}
-        <span className="flex items-center justify-center border border-dashed border-black">
+        <span className="flex items-center cursor-pointer justify-center border border-dashed border-black dark:border-white">
           <PlusIcon />
         </span>
       </div>
