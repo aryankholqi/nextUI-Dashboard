@@ -25,7 +25,9 @@ export default function Topbar() {
           <MenuIcon />
         </span>
         {!isSidebarOpen && (
-          <h1 className="font-poppinsRegular text-lg 2xs:text-2xl sm:text-3xl">Overview</h1>
+          <h1 className="font-poppinsRegular text-lg 2xs:text-2xl sm:text-3xl">
+            {document.title}
+          </h1>
         )}
       </div>
 

@@ -18,6 +18,7 @@
 - Zustand
 - react-hook-form
 - react-helmet
+- recharts
 
 ## Run Project
 
