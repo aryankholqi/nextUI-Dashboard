@@ -20,26 +20,25 @@ export default function CurrenciesMarketDetailBox({
           size: "lg",
         }}
         classNames={{
-          name: ["text-3xl"],
-          description: ["text-xl text-[#B6B6B6]"],
+          name: ["text-xl"],
+          description: ["text-md text-[#B6B6B6]"],
         }}
       />
       <div className="flex flex-col items-center">
-        <span className="text-3xl">{price}</span>
+        <span className="text-2xl">{price}</span>
         <div
-          className={`flex items-center ${
-            profit > 0 ? "text-[#007A64]" : "text-red-700"
-          }`}
+          className={`flex items-center ${profit > 0 ? "text-[#007A64]" : "text-red-700"
+            }`}
         >
           {profit > 0 ? (
             <>
               <ArrowDropUp />
-              <span className="text-xl">+{profit}%</span>
+              <span className="text-lg">+{profit}%</span>
             </>
           ) : (
             <>
               <ArrowDropDown />
-              <span className="text-xl">{profit}%</span>
+              <span className="text-lg">{profit}%</span>
             </>
           )}
         </div>

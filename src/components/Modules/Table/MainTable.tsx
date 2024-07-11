@@ -167,7 +167,7 @@ export default function MainTable() {
               />
             )}
           />
-          <div className="flex items-center flex-wrap sm:flex-nowrap gap-3">
+          <div className="grid grid-cols-2 3xs:grid-cols-3 gap-3">
             <Controller
               name="rowsPerPage"
               defaultValue={5}
@@ -175,8 +175,7 @@ export default function MainTable() {
               render={({ field: { onChange } }) => (
                 <Select
                   items={rowsOfPage}
-                  label={"Rows Per Page"}
-                  className="w-[140px] text-nowrap"
+                  label={"Rows"}
                   // eslint-disable-next-line @typescript-eslint/no-explicit-any
                   onSelectionChange={(value: any) => onChange(value.currentKey)}
                   classNames={{
