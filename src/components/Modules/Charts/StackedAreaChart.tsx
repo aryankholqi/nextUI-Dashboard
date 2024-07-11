@@ -1,6 +1,9 @@
+import { useTheme } from "next-themes";
 import { AreaChart, Area, XAxis, Tooltip, ResponsiveContainer } from "recharts";
 
 export default function StackedAreaChart() {
+  const { theme } = useTheme()
+
   const data = [
     {
       name: "Jun",
@@ -27,9 +30,22 @@ export default function StackedAreaChart() {
       amt: 2000,
     },
   ];
+
+  const areaPvStroke = theme === "light" ? "#000" : "#FFF"
+
   return (
     <ResponsiveContainer width={"100%"} height={"100%"}>
       <AreaChart data={data}>
+        <defs>
+          <linearGradient id="colorUv" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="5%" stopColor="#00FF6B" stopOpacity={0.8} />
+            <stop offset="95%" stopColor="#00FF6B" stopOpacity={0} />
+          </linearGradient>
+          <linearGradient id="colorPv" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="5%" stopColor="#000" stopOpacity={0.8} />
+            <stop offset="95%" stopColor="#FFF" stopOpacity={0} />
+          </linearGradient>
+        </defs>
         <XAxis dataKey="name" />
         <Tooltip />
         <Area
@@ -37,14 +53,14 @@ export default function StackedAreaChart() {
           dataKey="uv"
           stackId="1"
           stroke="#00FF6B"
-          fill="#CCFFCD"
+          fill="url(#colorUv)"
         />
         <Area
           type="monotone"
           dataKey="pv"
           stackId="1"
-          stroke="#000"
-          fill="#fff"
+          stroke={areaPvStroke}
+          fill="url(#colorPv)"
         />
       </AreaChart>
     </ResponsiveContainer>
