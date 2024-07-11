@@ -20,7 +20,7 @@ export default function YourCards() {
           </span>
         </MainTooltip>
       </div>
-      <div className="flex overflow-x-auto space-x-4 pb-4">
+      <div className="flex items-center overflow-x-auto space-x-4">
         {creditCardsInfo().map((card, index) => (
           <CreditCardBox key={index} {...card} />
         ))}
