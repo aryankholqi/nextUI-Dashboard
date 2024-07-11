@@ -10,10 +10,14 @@ import { incomeInfo } from "../../mock/incomeInfo";
 import { useSidebarStore } from "../../stores/useSidebar";
 
 export default function Home() {
-  const { isSidebarExpanded } = useSidebarStore()
+  const { isSidebarExpanded } = useSidebarStore();
   return (
     <div className="mt-5 grid grid-cols-1 gap-8">
-      <div className={`grid ${isSidebarExpanded ? "md:grid-cols-1" : "md:grid-cols-2"} mdb:grid-cols-2 xl:grid-cols-3 gap-8`}>
+      <div
+        className={`grid ${
+          isSidebarExpanded ? "md:grid-cols-1" : "md:grid-cols-2"
+        } mdb:grid-cols-2 xl:grid-cols-3 gap-8`}
+      >
         <TotalBalance />
         <AreaChartBox />
         <YourCards />
@@ -22,14 +26,16 @@ export default function Home() {
         </div>
       </div>
       <div className="grid grid-cols-12 grid-rows-12 child:gap-8 space-y-8 xl:space-x-8">
-        <div className={`col-span-12 2xl:col-span-9 grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 row-span-12`}>
+        <div
+          className={`col-span-12 2xl:col-span-9 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 row-span-12`}
+        >
           {incomeInfo().map((chart, index) => (
             <IncomeBox key={index} {...chart} />
           ))}
-          <div className="md:hidden 2xl:inline-block">
+          <div className="md:hidden xl:inline-block">
             <CurrenciesMarket />
           </div>
-          <div className="md:col-span-2 2xl:col-span-3">
+          <div className="md:col-span-2 xl:col-span-3">
             <CurrenciesMarketTable />
           </div>
         </div>
