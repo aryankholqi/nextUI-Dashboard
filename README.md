@@ -57,11 +57,11 @@ well, when you successfully logged in, you'll face the dashboard layout which we
 
 ![1720134770041](image/README/dashboardDark2.png)
 
-![1720738083458](image/README/1720738083458.png)
+![1720738449974](image/README/dashboardLight2.png)
 
 ## Folder Structure
 
-![1720135015714](image/README/1720135015714.png)
+![1720738510323](image/README/1720738510323.png)
 
 > We want to go straight forward to src folder:
 
