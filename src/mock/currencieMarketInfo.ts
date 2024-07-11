@@ -58,5 +58,37 @@ export function currenciesMarketTableInfo() {
       status: "pending",
       icon: EstyIcon,
     },
+        {
+      id: "5",
+      name: "Apple TV+",
+      amount: "110",
+      date: "1713098498000",
+      status: "paid",
+      icon: AppleTvIcon,
+    },
+    {
+      id: "6",
+      name: "Dribble",
+      amount: "18",
+      date: "1713271298000",
+      status: "overdue",
+      icon: DribbleIcon,
+    },
+    {
+      id: "7",
+      name: "Upwork",
+      amount: "114",
+      date: "1713444098000",
+      status: "paid",
+      icon: UpworkIcon,
+    },
+    {
+      id: "8",
+      name: "Esty",
+      amount: "28",
+      date: "1713616898000",
+      status: "pending",
+      icon: EstyIcon,
+    },
   ];
 }
