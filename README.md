@@ -61,7 +61,7 @@ well, when you successfully logged in, you'll face the dashboard layout which we
 
 ## Folder Structure
 
-![1720738510323](image/README/1720738510323.png)
+![1720738595211](image/README/1720738595211.png)
 
 > We want to go straight forward to src folder:
 
