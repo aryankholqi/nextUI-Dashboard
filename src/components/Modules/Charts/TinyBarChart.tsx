@@ -40,7 +40,7 @@ export default function TinyBarChart() {
                 <BarChart data={data} barSize={30}>
                     <Bar dataKey="uv" radius={[50, 50, 50, 50]}>
                         {data.map((entry, index) => (
-                            <Cell key={`cell-${index}`} fill={index === 2 ? "#000" : "#00FF6B"} {...entry} />
+                            <Cell key={`cell-${index}`} className={index === 2 ? "fill-[#000] dark:fill-white" : "fill-[#00FF6B] dark:fill-[#1AFF79]"} {...entry} />
                         ))}
                     </Bar>
                 </BarChart>
