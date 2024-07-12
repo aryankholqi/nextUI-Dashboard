@@ -195,7 +195,7 @@ export default function MainTable({ columns, initialVisibleColumns, data, render
       isHeaderSticky
       bottomContent={bottomContent}
       classNames={{
-        wrapper: "h-full rounded-4xl p-8",
+        wrapper: "h-full rounded-4xl p-8 bg-white dark:bg-black",
       }}
       topContent={topContent}
     >
