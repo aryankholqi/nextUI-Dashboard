@@ -16,7 +16,7 @@ export default function Topbar() {
   const { isSidebarOpen, toggleSidebar, isSidebarExpanded } = useSidebarStore();
 
   return (
-    <Card className="dark:bg-black shadow-none rounded-full py-3 px-5 flex-row justify-between items-center">
+    <Card className="dark:bg-black shadow-none rounded-full py-3 px-5 flex-row justify-between items-center sticky top-5 z-20">
       <div className="flex items-center gap-2">
         <span
           onClick={() => toggleSidebar(true)}
