@@ -16,7 +16,7 @@ export default function Topbar() {
   const { isSidebarOpen, toggleSidebar, isSidebarExpanded } = useSidebarStore();
 
   return (
-    <Card className="dark:bg-black shadow-none rounded-full py-3 px-5 flex-row justify-between items-center sticky top-5 z-20">
+    <Card className="dark:bg-black dark:shadow-md dark:shadow-white rounded-full py-3 px-5 flex-row justify-between items-center sticky top-5 z-20">
       <div className="flex items-center gap-2">
         <span
           onClick={() => toggleSidebar(true)}
@@ -36,8 +36,9 @@ export default function Topbar() {
           classNames={{
             inputWrapper: ["rounded-full"],
           }}
-          className={`font-poppinsRegular hidden ${isSidebarExpanded ? "lg:hidden lgb:block" : "lg:block"
-            }`}
+          className={`font-poppinsRegular hidden ${
+            isSidebarExpanded ? "lg:hidden lgb:block" : "lg:block"
+          }`}
           startContent={<SearchIcon />}
           endContent={
             <Kbd className="" keys={["command"]}>
@@ -48,8 +49,9 @@ export default function Topbar() {
         />
         <PopOver content={<SearchPopoverContent />}>
           <span
-            className={`cursor-pointer block ${isSidebarExpanded ? "lg:block lgb:hidden" : "lg:hidden"
-              }`}
+            className={`cursor-pointer block ${
+              isSidebarExpanded ? "lg:block lgb:hidden" : "lg:hidden"
+            }`}
           >
             <SearchIcon />
           </span>
@@ -69,8 +71,9 @@ export default function Topbar() {
         </div>
         <Divider className="rotate-90 w-5 h-[2px] bg-primaryGray" />
         <div
-          className={`hidden ${isSidebarExpanded ? "md:hidden" : "md:block"
-            } mdb:block`}
+          className={`hidden ${
+            isSidebarExpanded ? "md:hidden" : "md:block"
+          } mdb:block`}
         >
           <PopOver content={<UserPopoverContent />}>
             <div className="cursor-pointer">
@@ -82,8 +85,9 @@ export default function Topbar() {
           <div>
             <Avatar
               src={userImage}
-              className={`block ${isSidebarExpanded ? "md:block" : "md:hidden"
-                } mdb:hidden cursor-pointer`}
+              className={`block ${
+                isSidebarExpanded ? "md:block" : "md:hidden"
+              } mdb:hidden cursor-pointer`}
             />
           </div>
         </PopOver>
