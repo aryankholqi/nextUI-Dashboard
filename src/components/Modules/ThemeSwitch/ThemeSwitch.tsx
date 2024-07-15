@@ -2,6 +2,7 @@ import MainTooltip from "../Tooltip/MainTooltip";
 import MoonIcon from "../../../assets/icons/fill/Moon";
 import { useTheme } from "next-themes";
 import SunIcon from "../../../assets/icons/fill/Sun";
+import Cookies from 'js-cookie'
 
 export default function ThemeSwitch() {
   const { theme, setTheme } = useTheme();
@@ -10,9 +11,15 @@ export default function ThemeSwitch() {
   const changeThemeHandler = () => {
     switch (isLightMode) {
       case true:
-        return setTheme("dark");
+        setTheme("dark");
+        Cookies.set("theme", "dark")
+        break
       case false:
-        return setTheme("light");
+        setTheme("light");
+        Cookies.set("theme", "light")
+        break
+      default:
+        break
     }
   };
   return (
