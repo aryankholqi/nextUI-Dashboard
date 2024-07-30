@@ -7,7 +7,7 @@ export const Route = createFileRoute('/payments')({
         <>
             <Payments />
             <Helmet>
-                <title>Payments</title>
+                <title>payments</title>
             </Helmet>
         </>
 })

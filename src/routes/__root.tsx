@@ -8,13 +8,10 @@ export const Route = createRootRoute({
     component: () => {
         const { pathname } = window.location;
         const Layout = authRoutes.includes(pathname) ? AuthLayout : DashboardLayout;
-
         return (
-            <>
-                <Layout>
-                    <Outlet />
-                </Layout>
-            </>
+            <Layout>
+                <Outlet />
+            </Layout>
         );
     },
 });

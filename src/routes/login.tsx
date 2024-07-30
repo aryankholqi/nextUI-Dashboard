@@ -9,7 +9,7 @@ export const Route = createFileRoute("/login")({
     <>
       <Login />
       <Helmet>
-        <title>Login</title>
+        <title>login</title>
       </Helmet>
     </>,
 });

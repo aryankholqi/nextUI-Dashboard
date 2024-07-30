@@ -3,8 +3,10 @@ import MoonIcon from "../../../assets/icons/fill/Moon";
 import { useTheme } from "next-themes";
 import SunIcon from "../../../assets/icons/fill/Sun";
 import Cookies from 'js-cookie'
+import { useTranslation } from "react-i18next";
 
 export default function ThemeSwitch() {
+  const { t } = useTranslation()
   const { theme, setTheme } = useTheme();
   const isLightMode = theme === "light";
 
@@ -28,9 +30,9 @@ export default function ThemeSwitch() {
       className="flex justify-between items-center cursor-pointer"
     >
       <span className="sm:hidden">
-        {isLightMode ? `Dark Mode` : `Light Mode`}
+        {isLightMode ? t("darkMode") : t("lightMode")}
       </span>
-      <MainTooltip content={isLightMode ? `Dark Mode` : `Light Mode`}>
+      <MainTooltip content={isLightMode ? t("darkMode") : t("lightMode")}>
         <span>{isLightMode ? <MoonIcon /> : <SunIcon />}</span>
       </MainTooltip>
     </div>

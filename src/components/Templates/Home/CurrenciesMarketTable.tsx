@@ -6,6 +6,8 @@ import formatPrice from '../../../utils/formatPrice';
 import convertTimestampsToDate from '../../../utils/convertTimestampsToDate';
 import { Button, Chip, Dropdown, DropdownItem, DropdownMenu, DropdownTrigger } from '@nextui-org/react';
 import VerticalDotsIcon from '../../../assets/icons/fill/VerticalDots';
+import { useTranslation } from 'react-i18next';
+import getDirectionByLanguage from '../../../utils/getDirectionByLanguage';
 
 const columns = [
     { name: "ID", uid: "id" },
@@ -13,6 +15,7 @@ const columns = [
     { name: "Amount", uid: "amount" },
     { name: "Date", uid: "date" },
     { name: "Status", uid: "status" },
+    { name: "Actions", uid: "actions" }
 ];
 
 const initialVisibleColumns = ["name", "amount", "date", "status", "actions"];
@@ -29,6 +32,8 @@ const statusColorMap: {
 };
 
 export default function CurrenciesMarketTable() {
+    const { t, i18n } = useTranslation()
+
     const renderCell = useCallback(
         (item: currenyMarketsProps, columnKey: Key) => {
             const cellValue = item[columnKey as keyof currenyMarketsProps];
@@ -65,10 +70,10 @@ export default function CurrenciesMarketTable() {
                                         <VerticalDotsIcon />
                                     </Button>
                                 </DropdownTrigger>
-                                <DropdownMenu>
-                                    <DropdownItem>View</DropdownItem>
-                                    <DropdownItem>Edit</DropdownItem>
-                                    <DropdownItem>Delete</DropdownItem>
+                                <DropdownMenu dir={getDirectionByLanguage(i18n.language)}>
+                                    <DropdownItem>{t("view")}</DropdownItem>
+                                    <DropdownItem>{t("edit")}</DropdownItem>
+                                    <DropdownItem>{t("delete")}</DropdownItem>
                                 </DropdownMenu>
                             </Dropdown>
                         </div>

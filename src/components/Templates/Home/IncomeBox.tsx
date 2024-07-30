@@ -3,6 +3,7 @@ import formatPrice from "../../../utils/formatPrice";
 import { incomeProps } from "../../../interfaces/income.interface";
 import { useTheme } from "next-themes";
 import { useSidebarStore } from "../../../stores/useSidebar";
+import { useTranslation } from "react-i18next";
 
 export default function IncomeBox({
   id,
@@ -11,6 +12,7 @@ export default function IncomeBox({
   iconBgColor,
   percentage,
 }: incomeProps) {
+  const { t } = useTranslation()
   const { theme } = useTheme();
   const { isSidebarExpanded } = useSidebarStore()
 
@@ -25,7 +27,7 @@ export default function IncomeBox({
           >
             <Icon />
           </span>
-          <p className="font-poppinsMedium text-2xl">Income</p>
+          <p className="font-poppinsMedium text-2xl">{t("income")}</p>
         </div>
         <CircularProgress
           classNames={{
