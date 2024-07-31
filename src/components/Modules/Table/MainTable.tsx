@@ -21,6 +21,7 @@ import ChevronDownIcon from "../../../assets/icons/fill/ChevronDown";
 import PlusIcon from "../../../assets/icons/fill/Plus";
 import { Controller, useForm } from "react-hook-form";
 import { mainTableProps } from "../../../interfaces/mainTable.interface";
+import { useTranslation } from "react-i18next";
 
 
 
@@ -31,6 +32,8 @@ const rowsOfPage = [
 ];
 
 export default function MainTable({ columns, initialVisibleColumns, data, renderCell }: mainTableProps) {
+  const { t } = useTranslation()
+
   const { control, watch, resetField } = useForm({
     defaultValues: {
       search: "",
@@ -90,7 +93,7 @@ export default function MainTable({ columns, initialVisibleColumns, data, render
               <Input
                 isClearable
                 className="w-full sm:max-w-[30%]"
-                placeholder="Search by name..."
+                placeholder={t("searchByName")}
                 startContent={<SearchIcon />}
                 value={value}
                 onClear={onClear}
@@ -135,7 +138,7 @@ export default function MainTable({ columns, initialVisibleColumns, data, render
                 <Dropdown>
                   <DropdownTrigger>
                     <Button endContent={<ChevronDownIcon />} variant="flat">
-                      Columns
+                      {t("columns")}
                     </Button>
                   </DropdownTrigger>
                   <DropdownMenu
@@ -156,18 +159,18 @@ export default function MainTable({ columns, initialVisibleColumns, data, render
               )}
             />
             <Button color="primary" endContent={<PlusIcon />}>
-              Add New
+              {t("addNew")}
             </Button>
           </div>
         </div>
       </div>
     ),
-    [control, onClear, resetField, columns]
+    [control, t, onClear, resetField, columns]
   );
 
   const bottomContent = useMemo(
     () => (
-      <div className="py-2 px-5 flex xs:flex-col justify-center items-center gap-4">
+      <div className="py-2 px-5 flex xs:flex-col justify-center items-center gap-4" dir="ltr">
         <Controller
           name="page"
           control={control}

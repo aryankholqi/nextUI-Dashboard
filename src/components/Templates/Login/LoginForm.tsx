@@ -9,8 +9,10 @@ import loginImg from "../../../assets/pictures/login/wallpapersden.com_trees-mou
 import { HoverBorderGradient } from "../../ui/HoverBorderGrdaient";
 import { useLoginMutation } from "../../../hooks/api/useAuthApi";
 import { FlipWords } from "../../ui/FlipWords";
+import { useTranslation } from "react-i18next";
 
 export default function LoginForm() {
+  const { t } = useTranslation()
   const {
     register,
     handleSubmit,
@@ -30,7 +32,7 @@ export default function LoginForm() {
     mutate(data);
   };
 
-  const words = ["To Your Account", "To Unleash Your Dream"];
+  const words = [t("toYourAccount"), t("toUnleashYourDream")];
 
   return (
     <div className="w-full h-full flex items-center justify-center">
@@ -52,7 +54,7 @@ export default function LoginForm() {
       >
         <div className="self-start space-y-2">
           <span className="text-3xl text-white font-poppinsRegular block">
-            Login
+            {t("login")}
           </span>
           <FlipWords
             className="text-white/50 text-xl px-0 dark:text-neutral-400 font-poppinsLight"
@@ -76,7 +78,7 @@ export default function LoginForm() {
             endContent={<UserIcon />}
             isInvalid={Boolean(errors.username)}
             errorMessage={errors.username?.message}
-            label={"Username"}
+            label={t("username")}
           />
           <Input
             {...register("password", {
@@ -109,7 +111,7 @@ export default function LoginForm() {
                 </span>
               )
             }
-            label={"Password"}
+            label={t("password")}
             isInvalid={Boolean(errors.password)}
             errorMessage={errors.password?.message}
           />
@@ -123,7 +125,7 @@ export default function LoginForm() {
             className="w-full bg-transparent h-full text-white text-xl xl:text-lg 3xl:text-3xl"
             isLoading={isPending}
           >
-            Login
+            {t("login")}
           </Button>
         </HoverBorderGradient>
       </form>

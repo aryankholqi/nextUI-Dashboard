@@ -8,8 +8,10 @@ import { Link, useLocation } from "@tanstack/react-router";
 import { useSidebarStore } from "../../../stores/useSidebar";
 import ExpandRightIcon from "../../../assets/icons/fill/ExpandRight";
 import { useRevokeUser } from "../../../hooks/useRevokeUser";
+import { useTranslation } from "react-i18next";
 
 export default function Sidebar() {
+  const { t } = useTranslation()
   const {
     isSidebarOpen,
     toggleSidebar,
@@ -63,8 +65,9 @@ export default function Sidebar() {
           <div>
             <div className="flex items-center gap-4 sm:gap-3 flex-wrap-reverse mt-2">
               <LogoIcon />
+              {/* //TODO should set title here also */}
               <h1 className="font-poppinsRegular text-2xl sm:text-3xl md:hidden text-white">
-                Overview
+                {t(document.title)}
               </h1>
               <span
                 className="cursor-pointer md:hidden"
@@ -87,14 +90,15 @@ export default function Sidebar() {
                       className={`font-poppinsRegular ${!isSidebarExpanded && "md:hidden"
                         }`}
                     >
-                      {item.title}
+                      {t(item.title)}
                     </span>
                   </Link>
                 </li>
               ))}
             </ul>
           </div>
-          <div className={`flex items-center  mt-4 gap-2`} onClick={revokeUser}>
+          {/* //TODO should change this to link */}
+          <div className={`flex items-center mt-4 gap-2`} onClick={revokeUser}>
             <MainTooltip content="Signout">
               <span className="cursor-pointer">
                 <SigninIcon />
@@ -105,7 +109,7 @@ export default function Sidebar() {
               className={`text-white font-poppinsRegular transition-all hover:text-red-700 ${!isSidebarExpanded && "md:hidden"
                 }`}
             >
-              Signout
+              {t("signout")}
             </span>
           </div>
         </div>
