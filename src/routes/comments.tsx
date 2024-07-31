@@ -7,7 +7,7 @@ export const Route = createFileRoute('/comments')({
         <>
             <Comments />
             <Helmet>
-                <title>Comments</title>
+                <title>comments</title>
             </Helmet>
         </>
 })
