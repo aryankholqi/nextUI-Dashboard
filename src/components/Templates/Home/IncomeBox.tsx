@@ -30,6 +30,7 @@ export default function IncomeBox({
           <p className="ltr:font-poppinsMedium text-2xl">{t("income")}</p>
         </div>
         <CircularProgress
+        aria-label="Circular-Chart"
           classNames={{
             svg: `${isSidebarExpanded ? "!size-24" : "!size-36"}`,
             indicator: `${

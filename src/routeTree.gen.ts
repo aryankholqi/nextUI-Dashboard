@@ -11,103 +11,129 @@
 // Import Routes
 
 import { Route as rootRoute } from './routes/__root'
-import { Route as WalletImport } from './routes/wallet'
-import { Route as StatisticsImport } from './routes/statistics'
-import { Route as PaymentsImport } from './routes/payments'
-import { Route as MessagesImport } from './routes/messages'
-import { Route as LoginImport } from './routes/login'
-import { Route as CommentsImport } from './routes/comments'
-import { Route as IndexImport } from './routes/index'
+import { Route as UnAuthImport } from './routes/_unAuth'
+import { Route as AuthImport } from './routes/_auth'
+import { Route as AuthIndexImport } from './routes/_auth.index'
+import { Route as UnAuthLoginImport } from './routes/_unAuth.login'
+import { Route as AuthWalletImport } from './routes/_auth.wallet'
+import { Route as AuthStatisticsImport } from './routes/_auth.statistics'
+import { Route as AuthPaymentsImport } from './routes/_auth.payments'
+import { Route as AuthMessagesImport } from './routes/_auth.messages'
+import { Route as AuthCommentsImport } from './routes/_auth.comments'
 
 // Create/Update Routes
 
-const WalletRoute = WalletImport.update({
-  path: '/wallet',
+const UnAuthRoute = UnAuthImport.update({
+  id: '/_unAuth',
   getParentRoute: () => rootRoute,
 } as any)
 
-const StatisticsRoute = StatisticsImport.update({
-  path: '/statistics',
+const AuthRoute = AuthImport.update({
+  id: '/_auth',
   getParentRoute: () => rootRoute,
 } as any)
 
-const PaymentsRoute = PaymentsImport.update({
-  path: '/payments',
-  getParentRoute: () => rootRoute,
-} as any)
-
-const MessagesRoute = MessagesImport.update({
-  path: '/messages',
-  getParentRoute: () => rootRoute,
-} as any)
-
-const LoginRoute = LoginImport.update({
-  path: '/login',
-  getParentRoute: () => rootRoute,
-} as any)
-
-const CommentsRoute = CommentsImport.update({
-  path: '/comments',
-  getParentRoute: () => rootRoute,
-} as any)
-
-const IndexRoute = IndexImport.update({
+const AuthIndexRoute = AuthIndexImport.update({
   path: '/',
-  getParentRoute: () => rootRoute,
+  getParentRoute: () => AuthRoute,
+} as any)
+
+const UnAuthLoginRoute = UnAuthLoginImport.update({
+  path: '/login',
+  getParentRoute: () => UnAuthRoute,
+} as any)
+
+const AuthWalletRoute = AuthWalletImport.update({
+  path: '/wallet',
+  getParentRoute: () => AuthRoute,
+} as any)
+
+const AuthStatisticsRoute = AuthStatisticsImport.update({
+  path: '/statistics',
+  getParentRoute: () => AuthRoute,
+} as any)
+
+const AuthPaymentsRoute = AuthPaymentsImport.update({
+  path: '/payments',
+  getParentRoute: () => AuthRoute,
+} as any)
+
+const AuthMessagesRoute = AuthMessagesImport.update({
+  path: '/messages',
+  getParentRoute: () => AuthRoute,
+} as any)
+
+const AuthCommentsRoute = AuthCommentsImport.update({
+  path: '/comments',
+  getParentRoute: () => AuthRoute,
 } as any)
 
 // Populate the FileRoutesByPath interface
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/': {
-      id: '/'
-      path: '/'
-      fullPath: '/'
-      preLoaderRoute: typeof IndexImport
+    '/_auth': {
+      id: '/_auth'
+      path: ''
+      fullPath: ''
+      preLoaderRoute: typeof AuthImport
       parentRoute: typeof rootRoute
     }
-    '/comments': {
-      id: '/comments'
+    '/_unAuth': {
+      id: '/_unAuth'
+      path: ''
+      fullPath: ''
+      preLoaderRoute: typeof UnAuthImport
+      parentRoute: typeof rootRoute
+    }
+    '/_auth/comments': {
+      id: '/_auth/comments'
       path: '/comments'
       fullPath: '/comments'
-      preLoaderRoute: typeof CommentsImport
-      parentRoute: typeof rootRoute
+      preLoaderRoute: typeof AuthCommentsImport
+      parentRoute: typeof AuthImport
     }
-    '/login': {
-      id: '/login'
-      path: '/login'
-      fullPath: '/login'
-      preLoaderRoute: typeof LoginImport
-      parentRoute: typeof rootRoute
-    }
-    '/messages': {
-      id: '/messages'
+    '/_auth/messages': {
+      id: '/_auth/messages'
       path: '/messages'
       fullPath: '/messages'
-      preLoaderRoute: typeof MessagesImport
-      parentRoute: typeof rootRoute
+      preLoaderRoute: typeof AuthMessagesImport
+      parentRoute: typeof AuthImport
     }
-    '/payments': {
-      id: '/payments'
+    '/_auth/payments': {
+      id: '/_auth/payments'
       path: '/payments'
       fullPath: '/payments'
-      preLoaderRoute: typeof PaymentsImport
-      parentRoute: typeof rootRoute
+      preLoaderRoute: typeof AuthPaymentsImport
+      parentRoute: typeof AuthImport
     }
-    '/statistics': {
-      id: '/statistics'
+    '/_auth/statistics': {
+      id: '/_auth/statistics'
       path: '/statistics'
       fullPath: '/statistics'
-      preLoaderRoute: typeof StatisticsImport
-      parentRoute: typeof rootRoute
+      preLoaderRoute: typeof AuthStatisticsImport
+      parentRoute: typeof AuthImport
     }
-    '/wallet': {
-      id: '/wallet'
+    '/_auth/wallet': {
+      id: '/_auth/wallet'
       path: '/wallet'
       fullPath: '/wallet'
-      preLoaderRoute: typeof WalletImport
-      parentRoute: typeof rootRoute
+      preLoaderRoute: typeof AuthWalletImport
+      parentRoute: typeof AuthImport
+    }
+    '/_unAuth/login': {
+      id: '/_unAuth/login'
+      path: '/login'
+      fullPath: '/login'
+      preLoaderRoute: typeof UnAuthLoginImport
+      parentRoute: typeof UnAuthImport
+    }
+    '/_auth/': {
+      id: '/_auth/'
+      path: '/'
+      fullPath: '/'
+      preLoaderRoute: typeof AuthIndexImport
+      parentRoute: typeof AuthImport
     }
   }
 }
@@ -115,13 +141,15 @@ declare module '@tanstack/react-router' {
 // Create and export the route tree
 
 export const routeTree = rootRoute.addChildren({
-  IndexRoute,
-  CommentsRoute,
-  LoginRoute,
-  MessagesRoute,
-  PaymentsRoute,
-  StatisticsRoute,
-  WalletRoute,
+  AuthRoute: AuthRoute.addChildren({
+    AuthCommentsRoute,
+    AuthMessagesRoute,
+    AuthPaymentsRoute,
+    AuthStatisticsRoute,
+    AuthWalletRoute,
+    AuthIndexRoute,
+  }),
+  UnAuthRoute: UnAuthRoute.addChildren({ UnAuthLoginRoute }),
 })
 
 /* prettier-ignore-end */
@@ -132,35 +160,54 @@ export const routeTree = rootRoute.addChildren({
     "__root__": {
       "filePath": "__root.tsx",
       "children": [
-        "/",
-        "/comments",
-        "/login",
-        "/messages",
-        "/payments",
-        "/statistics",
-        "/wallet"
+        "/_auth",
+        "/_unAuth"
       ]
     },
-    "/": {
-      "filePath": "index.tsx"
+    "/_auth": {
+      "filePath": "_auth.tsx",
+      "children": [
+        "/_auth/comments",
+        "/_auth/messages",
+        "/_auth/payments",
+        "/_auth/statistics",
+        "/_auth/wallet",
+        "/_auth/"
+      ]
     },
-    "/comments": {
-      "filePath": "comments.tsx"
+    "/_unAuth": {
+      "filePath": "_unAuth.tsx",
+      "children": [
+        "/_unAuth/login"
+      ]
     },
-    "/login": {
-      "filePath": "login.tsx"
+    "/_auth/comments": {
+      "filePath": "_auth.comments.tsx",
+      "parent": "/_auth"
     },
-    "/messages": {
-      "filePath": "messages.tsx"
+    "/_auth/messages": {
+      "filePath": "_auth.messages.tsx",
+      "parent": "/_auth"
     },
-    "/payments": {
-      "filePath": "payments.tsx"
+    "/_auth/payments": {
+      "filePath": "_auth.payments.tsx",
+      "parent": "/_auth"
     },
-    "/statistics": {
-      "filePath": "statistics.tsx"
+    "/_auth/statistics": {
+      "filePath": "_auth.statistics.tsx",
+      "parent": "/_auth"
     },
-    "/wallet": {
-      "filePath": "wallet.tsx"
+    "/_auth/wallet": {
+      "filePath": "_auth.wallet.tsx",
+      "parent": "/_auth"
+    },
+    "/_unAuth/login": {
+      "filePath": "_unAuth.login.tsx",
+      "parent": "/_unAuth"
+    },
+    "/_auth/": {
+      "filePath": "_auth.index.tsx",
+      "parent": "/_auth"
     }
   }
 }
