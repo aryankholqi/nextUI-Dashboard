@@ -6,7 +6,7 @@ export default function ChangeLanguage() {
     const { i18n } = useTranslation()
 
     const changeLanguageHandler = (language: string) => {
-        i18n.changeLanguage(language)
+        i18n.changeLanguage(language)        
     }
     return (
         <DropdownMenu aria-label="Dropdown Menu">

@@ -12,9 +12,9 @@ export default function IncomeBox({
   iconBgColor,
   percentage,
 }: incomeProps) {
-  const { t } = useTranslation()
+  const { t } = useTranslation();
   const { theme } = useTheme();
-  const { isSidebarExpanded } = useSidebarStore()
+  const { isSidebarExpanded } = useSidebarStore();
 
   const iconbg = theme === "light" ? iconBgColor.light : iconBgColor.dark;
   return (
@@ -27,15 +27,16 @@ export default function IncomeBox({
           >
             <Icon />
           </span>
-          <p className="font-poppinsMedium text-2xl">{t("income")}</p>
+          <p className="ltr:font-poppinsMedium text-2xl">{t("income")}</p>
         </div>
         <CircularProgress
           classNames={{
             svg: `${isSidebarExpanded ? "!size-24" : "!size-36"}`,
-            indicator: `${id === 1
-              ? "stroke-[#00FF6B] dark:stroke-[#1AFF79]"
-              : "stroke-[#FF6756] dark:stroke-[#FF7E70]"
-              }`,
+            indicator: `${
+              id === 1
+                ? "stroke-[#00FF6B] dark:stroke-[#1AFF79]"
+                : "stroke-[#FF6756] dark:stroke-[#FF7E70]"
+            }`,
             track: "stroke-[#F3F4F7] dark:stroke-[#373737]",
             value:
               "text-lg font-poppinsRegular text-primaryGray dark:text-[#B6B6B6]",

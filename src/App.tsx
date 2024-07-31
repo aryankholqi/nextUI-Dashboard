@@ -1,9 +1,7 @@
 import { RouterProvider, createRouter } from "@tanstack/react-router";
 import { routeTree } from "./routeTree.gen";
 import { Toaster } from "react-hot-toast";
-import i18next from "i18next";
-import { useEffect, useState } from "react";
-import getDirectionByLanguage from "./utils/getDirectionByLanguage";
+import { useTranslation } from "react-i18next";
 
 const router = createRouter({
   routeTree,
@@ -16,28 +14,18 @@ declare module "@tanstack/react-router" {
 }
 
 export default function App() {
-  const [dir, setDir] = useState(getDirectionByLanguage(i18next.language))
+  const { i18n } = useTranslation();
 
-  useEffect(() => {
-    const handleLanguageChange = (lng: string) => {
-      setDir(getDirectionByLanguage(lng));
-    };
-
-    i18next.on("languageChanged", handleLanguageChange);
-
-    // Cleanup the event listener on unmount
-    return () => {
-      i18next.off("languageChanged", handleLanguageChange);
-    };
-  }, []);
   return (
-    <div dir={dir}>
+    <div dir={`${i18n.language === "fa" ? "rtl" : null}`}>
       <RouterProvider router={router} />
       <Toaster
         toastOptions={{
-          className: "font-poppinsRegular !bg-primaryBg dark:!bg-darkPrimaryBg !text-black dark:!text-white"
+          className:
+            "font-poppinsRegular !bg-primaryBg dark:!bg-darkPrimaryBg !text-black dark:!text-white",
         }}
-        reverseOrder={true} />
+        reverseOrder={true}
+      />
     </div>
   );
 }

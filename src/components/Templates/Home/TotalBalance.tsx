@@ -11,7 +11,7 @@ export default function TotalBalance() {
   return (
     <Card className="bg-primaryGreen p-8 rounded-4xl flex flex-col justify-between space-y-8 text-black shadow-none">
       <div className="flex items-center gap-4 justify-between">
-        <div className="space-y-2 font-poppinsRegular">
+        <div className="space-y-2 ltr:font-poppinsRegular">
           <h2 className="text-2xl">{t("totalBalance")}</h2>
           <div className="flex items-center gap-2">
             <span className="text-[32px]">{formatPrice("20760")}</span>
