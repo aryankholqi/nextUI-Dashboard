@@ -1,13 +1,13 @@
 import { createFileRoute } from '@tanstack/react-router'
-import Messages from '../pages/messages'
+import Statistics from '../pages/statistics'
 import { Helmet } from 'react-helmet'
 
-export const Route = createFileRoute('/messages')({
+export const Route = createFileRoute('/_auth/statistics')({
     component: () =>
         <>
-            <Messages />
+            <Statistics />
             <Helmet>
-                <title>messages</title>
+                <title>statistics</title>
             </Helmet>
         </>
 })

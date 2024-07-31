@@ -1,10 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import Login from "../pages/login/index";
-import { authorizedBeforeLoad } from "../configs/beforeLoad";
 import { Helmet } from "react-helmet";
 
-export const Route = createFileRoute("/login")({
-  ...authorizedBeforeLoad,
+export const Route = createFileRoute("/_unAuth/login")({
   component: () =>
     <>
       <Login />
