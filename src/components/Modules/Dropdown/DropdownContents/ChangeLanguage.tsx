@@ -2,7 +2,6 @@ import { Avatar, DropdownItem, DropdownMenu } from "@nextui-org/react";
 import { languages } from "../../../../constants/languages";
 import { useTranslation } from "react-i18next";
 import Cookies from "js-cookie";
-import { t } from "i18next";
 
 export default function ChangeLanguage() {
   const { i18n } = useTranslation();
