@@ -32,17 +32,18 @@ export default function Topbar() {
         {/* //TODO should fix this when we Login the title is Login */}
         {!isSidebarOpen && (
           <h1 className="ltr:font-poppinsRegular text-lg 2xs:text-2xl sm:text-3xl">
-            {t(document.title)}
+            {t("dashboard")}
           </h1>
         )}
       </div>
-      <div className="flex items-center gap-1.5 sm:gap-5">
+      <div className="flex items-center gap-.5 2xs:gap-1 sm:gap-5">
         <Input
           classNames={{
             inputWrapper: ["rounded-full"],
           }}
-          className={`font-poppinsRegular hidden ${isSidebarExpanded ? "lg:hidden lgb:block" : "lg:block"
-            }`}
+          className={`font-poppinsRegular hidden ${
+            isSidebarExpanded ? "lg:hidden lgb:block" : "lg:block"
+          }`}
           startContent={<SearchIcon />}
           endContent={
             <Kbd className="" keys={["command"]}>
@@ -53,8 +54,9 @@ export default function Topbar() {
         />
         <PopOver content={<SearchPopoverContent />}>
           <span
-            className={`cursor-pointer block ${isSidebarExpanded ? "lg:block lgb:hidden" : "lg:hidden"
-              }`}
+            className={`cursor-pointer block ${
+              isSidebarExpanded ? "lg:block lgb:hidden" : "lg:hidden"
+            }`}
           >
             <SearchIcon />
           </span>
@@ -75,13 +77,14 @@ export default function Topbar() {
         <MainDropdown content={<ChangeLanguage />}>
           <Avatar
             src={languages.find((lng) => lng.key === i18n.language)?.icon}
-            className="w-[30px] h-[30px] lg:w-[90px] lg:h-[35px]"
+            className="w-[30px] h-[30px] cursor-pointer lg:w-[90px] lg:h-[35px]"
           />
         </MainDropdown>
         <Divider className="rotate-90 w-5 h-[2px] bg-primaryGray" />
         <div
-          className={`hidden ${isSidebarExpanded ? "md:hidden" : "md:block"
-            } mdb:block`}
+          className={`hidden ${
+            isSidebarExpanded ? "md:hidden" : "md:block"
+          } mdb:block`}
         >
           <PopOver content={<UserPopoverContent />}>
             <div className="cursor-pointer">
@@ -93,8 +96,9 @@ export default function Topbar() {
           <div>
             <Avatar
               src={userImage}
-              className={`block ${isSidebarExpanded ? "md:block" : "md:hidden"
-                } mdb:hidden cursor-pointer`}
+              className={`block ${
+                isSidebarExpanded ? "md:block" : "md:hidden"
+              } mdb:hidden cursor-pointer`}
             />
           </div>
         </PopOver>

@@ -19,7 +19,7 @@ export default function QuickTransfer() {
         <h3 className="text-3xl 2xl:text-2xl">{t("quickTransfer")}</h3>
         <Link className="text-[#4660F2] text-lg 2xl:text-sm text-nowrap">{t("viewAll")}</Link>
       </div>
-      <div className="flex items-center overflow-x-scroll gap-3 child:w-[80px] child:h-[129px] child:rounded-[32px]">
+      <div className="flex items-center justify-between overflow-x-scroll gap-3 child:w-[80px] child:h-[129px] child:rounded-[32px]">
         {quickTransferInf().map((item, index) => (
           <User
             style={{

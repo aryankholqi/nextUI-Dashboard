@@ -22,7 +22,7 @@ export default function App() {
       <Toaster
         toastOptions={{
           className:
-            "font-poppinsRegular !bg-primaryBg dark:!bg-darkPrimaryBg !text-black dark:!text-white",
+            "ltr:font-poppinsRegular !bg-primaryBg dark:!bg-darkPrimaryBg !text-black dark:!text-white",
         }}
         reverseOrder={true}
       />

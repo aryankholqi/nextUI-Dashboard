@@ -35,9 +35,11 @@
   "password": "رمز عبور",
   "loggedIn": "وارد شدید",
   "expand": "باز کردن",
-  "collapse": "بستن",
+  "collapse": "بسته کردن",
   "pro": "ویژه",
   "view": "مشاهده",
   "edit": "ویرایش",
-  "delete": "حذف"
+  "delete": "حذف",
+  "english": "انگلیسی",
+  "persian": "فارسی"
 }

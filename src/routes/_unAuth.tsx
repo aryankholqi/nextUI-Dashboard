@@ -1,7 +1,14 @@
-import { createFileRoute, Outlet } from '@tanstack/react-router'
-import { unAuthorizedBeforeLoad } from '../configs/beforeLoad'
+import { createRootRoute, Outlet } from "@tanstack/react-router";
+import AuthLayout from "../layouts/AuthLayout";
+import { authorizedBeforeLoad } from "../configs/beforeLoad";
 
-export const Route = createFileRoute('/_unAuth')({
-    ...unAuthorizedBeforeLoad,
-    component: () => <Outlet />
-})
+export const Route = createRootRoute({
+  ...authorizedBeforeLoad,
+  component: () => {
+    return (
+      <AuthLayout>
+        <Outlet />
+      </AuthLayout>
+    );
+  },
+});
