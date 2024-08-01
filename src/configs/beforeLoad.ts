@@ -1,8 +1,10 @@
 import { redirect } from "@tanstack/react-router";
 import isAuthenticated from "../utils/isAuthenticated";
 
-export const unAuthorizedBeforeLoad = {
+export const authorizedBeforeLoad = {
   beforeLoad: async () => {
+    console.log("trigger");
+
     if (!isAuthenticated()) {
       throw redirect({
         to: "/login",
@@ -11,7 +13,7 @@ export const unAuthorizedBeforeLoad = {
   },
 };
 
-export const authorizedBeforeLoad = {
+export const unAuthorizedBeforeLoad = {
   beforeLoad: async () => {
     if (isAuthenticated()) {
       throw redirect({
