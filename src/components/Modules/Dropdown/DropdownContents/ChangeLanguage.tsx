@@ -22,7 +22,7 @@ export default function ChangeLanguage() {
           startContent={<Avatar src={language.icon} />}
           onClick={() => changeLanguageHandler(language.key)}
         >
-          <span className="ltr:font-poppinsRegular">{t(language.title)}</span>
+          <span className="ltr:font-poppinsRegular">{language.title}</span>
         </DropdownItem>
       ))}
     </DropdownMenu>
