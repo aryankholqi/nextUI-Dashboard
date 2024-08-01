@@ -4,7 +4,6 @@ import Cookies from "js-cookie";
 import { useNavigate } from "@tanstack/react-router";
 import { loginProps } from "../../interfaces/loginForm.interface";
 import toast from "react-hot-toast";
-import { t } from "i18next";
 
 export const useLoginMutation = (reset: () => void) => {
   const navigate = useNavigate({ from: "/login" });
@@ -18,7 +17,7 @@ export const useLoginMutation = (reset: () => void) => {
       navigate({
         to: "/",
       });
-      toast.success(t("loggedIn"));
+      toast.success("Logged In");
     },
   });
 };

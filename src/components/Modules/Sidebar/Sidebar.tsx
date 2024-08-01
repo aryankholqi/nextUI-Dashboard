@@ -112,9 +112,8 @@ export default function Sidebar() {
             </MainTooltip>
 
             <span
-              className={`text-white ltr:font-poppinsRegular transition-all hover:text-red-700 ${
-                !isSidebarExpanded && "md:hidden"
-              }`}
+              className={`text-white ltr:font-poppinsRegular transition-all hover:text-red-700 ${!isSidebarExpanded && "md:hidden"
+                }`}
             >
               {t("signout")}
             </span>

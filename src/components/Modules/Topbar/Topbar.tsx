@@ -32,7 +32,7 @@ export default function Topbar() {
         {/* //TODO should fix this when we Login the title is Login */}
         {!isSidebarOpen && (
           <h1 className="ltr:font-poppinsRegular text-lg 2xs:text-2xl sm:text-3xl">
-            {t("dashboard")}
+            {t(document.title)}
           </h1>
         )}
       </div>
@@ -75,7 +75,7 @@ export default function Topbar() {
         <MainDropdown content={<ChangeLanguage />}>
           <Avatar
             src={languages.find((lng) => lng.key === i18n.language)?.icon}
-            className="w-[30px] h-[30px] cursor-pointer lg:w-[90px] lg:h-[35px]"
+            className="w-[30px] h-[30px] lg:w-[90px] lg:h-[35px]"
           />
         </MainDropdown>
         <Divider className="rotate-90 w-5 h-[2px] bg-primaryGray" />

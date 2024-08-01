@@ -36,45 +36,37 @@ const AuthRoute = AuthImport.update({
 const AuthIndexRoute = AuthIndexImport.update({
   path: '/',
   getParentRoute: () => AuthRoute,
-} as any).lazy(() => import('./routes/_auth.index.lazy').then((d) => d.Route))
+} as any)
 
 const UnAuthLoginRoute = UnAuthLoginImport.update({
   path: '/login',
   getParentRoute: () => UnAuthRoute,
-} as any).lazy(() => import('./routes/_unAuth.login.lazy').then((d) => d.Route))
+} as any)
 
 const AuthWalletRoute = AuthWalletImport.update({
   path: '/wallet',
   getParentRoute: () => AuthRoute,
-} as any).lazy(() => import('./routes/_auth.wallet.lazy').then((d) => d.Route))
+} as any)
 
 const AuthStatisticsRoute = AuthStatisticsImport.update({
   path: '/statistics',
   getParentRoute: () => AuthRoute,
-} as any).lazy(() =>
-  import('./routes/_auth.statistics.lazy').then((d) => d.Route),
-)
+} as any)
 
 const AuthPaymentsRoute = AuthPaymentsImport.update({
   path: '/payments',
   getParentRoute: () => AuthRoute,
-} as any).lazy(() =>
-  import('./routes/_auth.payments.lazy').then((d) => d.Route),
-)
+} as any)
 
 const AuthMessagesRoute = AuthMessagesImport.update({
   path: '/messages',
   getParentRoute: () => AuthRoute,
-} as any).lazy(() =>
-  import('./routes/_auth.messages.lazy').then((d) => d.Route),
-)
+} as any)
 
 const AuthCommentsRoute = AuthCommentsImport.update({
   path: '/comments',
   getParentRoute: () => AuthRoute,
-} as any).lazy(() =>
-  import('./routes/_auth.comments.lazy').then((d) => d.Route),
-)
+} as any)
 
 // Populate the FileRoutesByPath interface
 

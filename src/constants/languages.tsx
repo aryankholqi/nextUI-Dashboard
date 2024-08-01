@@ -3,12 +3,12 @@ import IranFlag from "../assets/pictures/flag/iranFlag.jpg"
 
 export const languages = [
     {
-        title: "english",
+        title: "English",
         key: "en",
         icon: UkFlag
     },
     {
-        title: "persian",
+        title: "Persian",
         key: "fa",
         icon: IranFlag
     }
