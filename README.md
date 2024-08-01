@@ -19,6 +19,7 @@
 - react-hook-form
 - react-helmet
 - recharts
+- react-i18next
 
 ## Run Project
 
