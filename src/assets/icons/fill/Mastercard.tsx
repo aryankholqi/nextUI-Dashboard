@@ -1,7 +1,7 @@
 export default function Mastercard() {
   return (
     <svg
-      enable-background="new 0 0 750 471"
+      enableBackground="new 0 0 750 471"
       height="471"
       viewBox="0 0 750 471"
       xmlns="http://www.w3.org/2000/svg"

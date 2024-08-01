@@ -7,17 +7,19 @@ import { useTheme } from "next-themes";
 import { Link } from "@tanstack/react-router";
 import MainTooltip from "../../Modules/Tooltip/MainTooltip";
 import formatPrice from "../../../utils/formatPrice";
+import { useTranslation } from "react-i18next";
 
 export default function QuickTransfer() {
+  const { t } = useTranslation()
   const { theme } = useTheme();
 
   return (
     <Card className="p-8 bg-white dark:bg-black dark:text-white rounded-4xl shadow-none space-y-5 flex flex-col justify-between">
       <div className="flex items-center justify-between">
-        <h3 className="text-3xl 2xl:text-2xl">Quick Transfer</h3>
-        <Link className="text-[#4660F2] text-lg 2xl:text-sm text-nowrap">View all</Link>
+        <h3 className="text-3xl 2xl:text-2xl">{t("quickTransfer")}</h3>
+        <Link className="text-[#4660F2] text-lg 2xl:text-sm text-nowrap">{t("viewAll")}</Link>
       </div>
-      <div className="flex items-center overflow-x-scroll gap-3 child:w-[80px] child:h-[129px] child:rounded-[32px]">
+      <div className="flex items-center justify-between overflow-x-scroll gap-3 child:w-[80px] child:h-[129px] child:rounded-[32px]">
         {quickTransferInf().map((item, index) => (
           <User
             style={{

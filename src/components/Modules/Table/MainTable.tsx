@@ -21,8 +21,7 @@ import ChevronDownIcon from "../../../assets/icons/fill/ChevronDown";
 import PlusIcon from "../../../assets/icons/fill/Plus";
 import { Controller, useForm } from "react-hook-form";
 import { mainTableProps } from "../../../interfaces/mainTable.interface";
-
-
+import { useTranslation } from "react-i18next";
 
 const rowsOfPage = [
   { key: 5, label: "5" },
@@ -30,7 +29,14 @@ const rowsOfPage = [
   { key: 15, label: "15" },
 ];
 
-export default function MainTable({ columns, initialVisibleColumns, data, renderCell }: mainTableProps) {
+export default function MainTable({
+  columns,
+  initialVisibleColumns,
+  data,
+  renderCell,
+}: mainTableProps) {
+  const { t, i18n } = useTranslation();
+
   const { control, watch, resetField } = useForm({
     defaultValues: {
       search: "",
@@ -49,7 +55,7 @@ export default function MainTable({ columns, initialVisibleColumns, data, render
     // @ts-expect-error Becuase visibleColumns is a Set of array.
     if (visibleColumns === "all") return columns;
 
-    return columns.filter((column: { name: string, uid: string }) =>
+    return columns.filter((column: { name: string; uid: string }) =>
       Array.from(visibleColumns).includes(column.uid)
     );
   }, [visibleColumns, columns]);
@@ -90,7 +96,7 @@ export default function MainTable({ columns, initialVisibleColumns, data, render
               <Input
                 isClearable
                 className="w-full sm:max-w-[30%]"
-                placeholder="Search by name..."
+                placeholder={t("searchByName")}
                 startContent={<SearchIcon />}
                 value={value}
                 onClear={onClear}
@@ -109,13 +115,13 @@ export default function MainTable({ columns, initialVisibleColumns, data, render
               render={({ field: { onChange } }) => (
                 <Select
                   items={rowsOfPage}
-                  label={"Rows"}
+                  label={t("rows")}
+                  dir={`${i18n.language === "fa" ? "rtl" : null}`}
                   // eslint-disable-next-line @typescript-eslint/no-explicit-any
                   onSelectionChange={(value: any) => {
-                    onChange(value.currentKey)
-                    resetField("page")
-                  }
-                  }
+                    onChange(value.currentKey);
+                    resetField("page");
+                  }}
                   classNames={{
                     trigger: ["min-h-10 h-10"],
                     label: ["text-black dark:text-white"],
@@ -135,7 +141,7 @@ export default function MainTable({ columns, initialVisibleColumns, data, render
                 <Dropdown>
                   <DropdownTrigger>
                     <Button endContent={<ChevronDownIcon />} variant="flat">
-                      Columns
+                      {t("columns")}
                     </Button>
                   </DropdownTrigger>
                   <DropdownMenu
@@ -146,7 +152,7 @@ export default function MainTable({ columns, initialVisibleColumns, data, render
                     selectionMode="multiple"
                     onSelectionChange={(value) => onChange(value)}
                   >
-                    {columns.map((column: { name: string, uid: string }) => (
+                    {columns.map((column: { name: string; uid: string }) => (
                       <DropdownItem key={column.uid} className="capitalize">
                         {column.name}
                       </DropdownItem>
@@ -156,18 +162,21 @@ export default function MainTable({ columns, initialVisibleColumns, data, render
               )}
             />
             <Button color="primary" endContent={<PlusIcon />}>
-              Add New
+              {t("addNew")}
             </Button>
           </div>
         </div>
       </div>
     ),
-    [control, onClear, resetField, columns]
+    [control, t, onClear, resetField, columns]
   );
 
   const bottomContent = useMemo(
     () => (
-      <div className="py-2 px-5 flex xs:flex-col justify-center items-center gap-4">
+      <div
+        className="py-2 px-5 flex xs:flex-col justify-center items-center gap-4"
+        dir="ltr"
+      >
         <Controller
           name="page"
           control={control}
@@ -200,7 +209,7 @@ export default function MainTable({ columns, initialVisibleColumns, data, render
       topContent={topContent}
     >
       <TableHeader columns={headerColumns}>
-        {(column: { name: string, uid: string }) => (
+        {(column: { name: string; uid: string }) => (
           <TableColumn
             key={column.uid}
             align={column.uid === "actions" ? "center" : "start"}
