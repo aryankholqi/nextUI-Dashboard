@@ -60,7 +60,9 @@ export default function Sidebar() {
             isSidebarExpanded || isSidebarOpen ? "items-start" : "items-center"
           } justify-between h-full relative`}
         >
-          <MainTooltip content={isSidebarExpanded ? "Collapse" : "Expand"}>
+          <MainTooltip
+            content={isSidebarExpanded ? t("collapse") : t("expand")}
+          >
             <span
               className={`hidden md:inline-block absolute ${
                 i18n.language === "fa" ? "-left-8" : "-right-8 "
