@@ -56,7 +56,9 @@ export default function Sidebar() {
           className={`flex flex-col ${isSidebarExpanded || isSidebarOpen ? "items-start" : "items-center"
             } justify-between h-full relative`}
         >
-          <MainTooltip content={isSidebarExpanded ? "Collapse" : "Expand"}>
+          <MainTooltip
+            content={isSidebarExpanded ? t("collapse") : t("expand")}
+          >
             <span
               className={`hidden md:inline-block absolute ${i18n.language === "fa" ? "-left-8" : "-right-8 "
                 } top-[50px] cursor-pointer transition-all duration-250 ${isSidebarExpanded ? "rotate-180" : "rotate-0"
