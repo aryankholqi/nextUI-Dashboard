@@ -119,7 +119,7 @@ export default function Sidebar() {
             </MainTooltip>
 
             <span
-              className={`text-white ltr:font-poppinsRegular transition-all hover:text-red-700 ${
+              className={`text-white cursor-pointer ltr:font-poppinsRegular transition-all hover:text-red-700 ${
                 !isSidebarExpanded && "md:hidden"
               }`}
             >
